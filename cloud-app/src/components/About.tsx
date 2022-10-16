@@ -1,4 +1,3 @@
-
 const About = () => {
   return (
     <div id="about" className="w-full my-32">

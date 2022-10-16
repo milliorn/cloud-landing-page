@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-scroll";
 
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import {Menu, X} from "heroicons-react";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const handleClick = () => setNav(!nav);
 
+  const handleClick = () => setNav(!nav);
   const handleClose = () => setNav(!nav);
 
   return (
@@ -49,7 +49,7 @@ const Navbar = () => {
           <button className="px-8 py-3">Sign Up</button>
         </div>
         <div className="md:hidden mr-4" onClick={handleClick}>
-          {!nav ? <MenuIcon className="w-5" /> : <XIcon className="w-5" />}
+          {!nav ? <Menu className="w-5" /> : <X className="w-5" />}
         </div>
       </div>
 
