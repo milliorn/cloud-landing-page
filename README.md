@@ -8,3 +8,4 @@ Getting Started -> <https://create-react-app.dev/docs/getting-started>
 
 Install Tailwind React -> <https://tailwindcss.com/docs/guides/create-react-app>
 
+tsconfig -> <https://www.typescriptlang.org/tsconfig>
