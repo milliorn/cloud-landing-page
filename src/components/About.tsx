@@ -3,12 +3,13 @@ const About = () => {
     <div id="about" className="w-full my-32">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
-          <h2 className="text-5xl font-bold">
+          <h2 className="sm:text-5xl text-2xl font-bold">
             Trusted by developers across the world
           </h2>
-          <p className="text-3xl py-6 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            asperiores earum placeat veritatis dignissimos itaque.
+          <p className="sm:text-3xl py-6 text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illum
+            rem quasi quos nihil eveniet numquam similique obcaecati tenetur
+            dicta doloribus quo iusto sunt animi eius odio, eaque in deserunt!
           </p>
         </div>
 
