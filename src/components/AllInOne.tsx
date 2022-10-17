@@ -5,10 +5,11 @@ const AllInOne = () => {
     <div id="platforms" className="w-full my-32">
       <div className="max-w-[1240px] mx-auto px-2">
         <h2 className="text-5xl font-bold text-center">All-In-One Platform</h2>
-        <p className="text-2xl py-8 text-gray-500 text-center">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis,
-          ab. Officia sunt nulla aspernatur culpa, eaque tenetur excepturi
-          nostrum tempore.
+        <p className="sm:text-2xl py-8 text-gray-500 text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolores
+          iure itaque beatae. Vitae veritatis voluptatum officia suscipit est
+          ullam tempore ipsa exercitationem ut fugiat. Velit quibusdam laborum
+          qui sed!
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
@@ -19,9 +20,10 @@ const AllInOne = () => {
             <div>
               <h3 className="font-bold text-lg">Notifications</h3>
               <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Cupiditate consequuntur, soluta assumenda laboriosam iusto eius?
+                Hic voluptates in laudantium, cum magni quis, veritatis quasi
+                iusto ipsa, facilis nisi! Fuga, asperiores.
               </p>
             </div>
           </div>
@@ -33,8 +35,66 @@ const AllInOne = () => {
               <h3 className="font-bold text-lg">Notifications</h3>
               <p className="text-lg pt-2 pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
+                Cupiditate animi odio ipsam architecto, sequi nostrum recusandae
+                quibusdam qui, assumenda temporibus quod! Laudantium modi id
+                sed, corrupti hic ex error voluptatibus!
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div>
+              <Check className="w-7 mr-4 text-green-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Notifications</h3>
+              <p className="text-lg pt-2 pb-4">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Eligendi corporis architecto tenetur quam molestias, incidunt
+                enim sapiente voluptatem odio reiciendis, dicta itaque
+                dignissimos. Repudiandae magnam voluptas fugit quae numquam
+                suscipit.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div>
+              <Check className="w-7 mr-4 text-green-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Notifications</h3>
+              <p className="text-lg pt-2 pb-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                quae, accusamus, deserunt facilis ipsa qui quisquam facere vel,
+                perspiciatis fugiat odit! Facilis, illo quod dolorem magnam
+                assumenda voluptatibus mollitia rerum.
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div>
+              <Check className="w-7 mr-4 text-green-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Notifications</h3>
+              <p className="text-lg pt-2 pb-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                quae laudantium mollitia incidunt est obcaecati, in eum
+                dignissimos dolores. Molestias ullam quos voluptates doloribus
+                voluptate obcaecati reiciendis expedita enim ea?
+              </p>
+            </div>
+          </div>
+          <div className="flex">
+            <div>
+              <Check className="w-7 mr-4 text-green-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg">Notifications</h3>
+              <p className="text-lg pt-2 pb-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                incidunt itaque exercitationem nihil molestias doloribus
+                mollitia ea et minima a tempora eveniet nisi repudiandae, modi
+                quis id iure eos porro.
               </p>
             </div>
           </div>
@@ -46,8 +106,9 @@ const AllInOne = () => {
               <h3 className="font-bold text-lg">Notifications</h3>
               <p className="text-lg pt-2 pb-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
+                Veritatis adipisci repellat provident nesciunt vero quasi quod,
+                deleniti neque repudiandae maiores alias. Aliquam officia
+                perspiciatis esse laudantium deleniti, culpa a animi?
               </p>
             </div>
           </div>
@@ -58,61 +119,10 @@ const AllInOne = () => {
             <div>
               <h3 className="font-bold text-lg">Notifications</h3>
               <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
-              </p>
-            </div>
-          </div>
-          <div className="flex">
-            <div>
-              <Check className="w-7 mr-4 text-green-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg">Notifications</h3>
-              <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
-              </p>
-            </div>
-          </div>
-          <div className="flex">
-            <div>
-              <Check className="w-7 mr-4 text-green-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg">Notifications</h3>
-              <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
-              </p>
-            </div>
-          </div>
-          <div className="flex">
-            <div>
-              <Check className="w-7 mr-4 text-green-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg">Notifications</h3>
-              <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
-              </p>
-            </div>
-          </div>
-          <div className="flex">
-            <div>
-              <Check className="w-7 mr-4 text-green-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg">Notifications</h3>
-              <p className="text-lg pt-2 pb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Asperiores maxime deserunt voluptatibus consequatur similique
-                voluptates!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                temporibus ipsum eos eum modi earum dicta? Aliquam officia unde
+                at dolorem, corporis, culpa eos, esse suscipit sapiente saepe
+                rem in.
               </p>
             </div>
           </div>
