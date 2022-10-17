@@ -1,4 +1,4 @@
-const About = () => {
+function About(): JSX.Element {
   const data = [
     {
       pText1: "100%",
@@ -12,14 +12,14 @@ const About = () => {
       pText1: "100%",
       pText2: "Transactions",
     },
-  ];
+  ] as const;
 
   const mappedData = data.map((e, i) => (
     <div className="border py-8 rounded-xl shadow-xl" key={i}>
       <p className="text-6xl font-bold text-indigo-600">{e.pText1}</p>
       <p className="text-gray-400 mt-2">{e.pText2}</p>
     </div>
-  ));
+  )) as JSX.Element[];
 
   return (
     <div id="about" className="w-full my-12 sm:my-32">
@@ -42,6 +42,6 @@ const About = () => {
       </div>
     </div>
   );
-};
+}
 
 export default About;
