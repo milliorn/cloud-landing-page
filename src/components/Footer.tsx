@@ -49,7 +49,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-span-2 pt-8 md p-4:sm:pt-2">
-          <p className="font-bold uppercase">Subscribe to our newsletter</p>
+          <p className="font-bold uppercase text-center">
+            Subscribe to our newsletter
+          </p>
           <p className="py-4">
             The latest news, articles, and resources, sent to your inbox weekly.
           </p>
@@ -65,7 +67,9 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col max-w-[1240px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500">
-        <p className="py-4">2022 Workflow, LLC. All rights reserved</p>
+        <p className="py-4">
+          © {new Date().getFullYear()} Lorem, ipsum. All rights reserved
+        </p>
         <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
           <FaFacebook />
           <FaInstagram />
