@@ -8,13 +8,14 @@ const Pricing = () => {
       <div className="max-w-[1240px] mx-auto py-12">
         <div className="text-center py-8 text-slate-300">
           <h2 className="text-3xl uppercase">Pricing</h2>
-          <h3 className="text-5xl font-bold text-white py-8">
+          <h3 className="text-2xl sm:text-5xl font-bold text-white py-8">
             The right price for your research.
           </h3>
-          <p className="text-3xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-            laudantium odio ullam inventore aliquid ipsum quasi tenetur velit
-            voluptatum iste.
+          <p className="sm:text-3xl">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque
+            eveniet provident ut. Possimus tempore quasi dolore maiores fuga
+            explicabo dolorum, facilis nisi doloribus? Maxime quis quia fugiat
+            libero sed quibusdam.
           </p>
         </div>
 
@@ -32,24 +33,25 @@ const Pricing = () => {
               </p>
             </div>
             <p className="text-2xl py-8 text-slate-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Reiciendis, eligendi?
             </p>
             <div className="text-2xl">
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor, sit amet consectetur adipisicing.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit amet consectetur.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit amet.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
@@ -71,24 +73,24 @@ const Pricing = () => {
               </p>
             </div>
             <p className="text-2xl py-8 text-slate-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing.
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, hic.
             </p>
             <div className="text-2xl">
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit amet consectetur adipisicing.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit amet consectetur.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit amet.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
+                Lorem ipsum dolor sit.
               </p>
               <p className="flex py-4">
                 <Check className="w-8 mr-5 text-green-600" />
