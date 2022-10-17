@@ -1,15 +1,16 @@
 const About = () => {
   return (
-    <div id="about" className="w-full my-32">
+    <div id="about" className="w-full my-12 sm:my-32">
       <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
           <h2 className="sm:text-5xl text-2xl font-bold">
             Trusted by developers across the world
           </h2>
           <p className="sm:text-3xl py-6 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illum
-            rem quasi quos nihil eveniet numquam similique obcaecati tenetur
-            dicta doloribus quo iusto sunt animi eius odio, eaque in deserunt!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
+            perspiciatis qui, provident a hic nesciunt harum illum quae dolores.
+            Inventore esse error ipsam illo repellat. Repellat libero
+            perferendis neque laborum!
           </p>
         </div>
 
