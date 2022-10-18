@@ -24,8 +24,9 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
+          VALIDATE_TSX: true
           VALIDATE_ALL_CODEBASE: true
           VALIDATE_TYPESCRIPT_ES: true
-          VALIDATE_TSX: true
+          VALIDATE_TYPESCRIPT_STANDARD: true
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
