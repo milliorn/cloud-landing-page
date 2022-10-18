@@ -5,7 +5,7 @@ const Pricing = () => {
     <div id="pricing" className="w-full text-white my-24">
       <div className="w-full h-[800px] bg-slate-900 absolute mix-blend-overlay"></div>
 
-      <div className="max-w-[1240px] mx-auto py-12">
+      <div className="max-w-[1280px] mx-auto py-12">
         <div className="text-center py-8 text-slate-300">
           <h2 className="text-3xl uppercase">Pricing</h2>
           <h3 className="text-2xl sm:text-5xl font-bold text-white py-8">

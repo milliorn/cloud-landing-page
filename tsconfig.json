@@ -1,6 +1,13 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "esModuleInterop": true,
@@ -25,5 +32,8 @@
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

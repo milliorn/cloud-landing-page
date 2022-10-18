@@ -23,7 +23,7 @@ function About(): JSX.Element {
 
   return (
     <div id="about" className="w-full my-12 sm:my-32">
-      <div className="max-w-[1240px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <div className="text-center">
           <h2 className="sm:text-5xl text-2xl font-bold mx-1">
             Trusted by developers across the world
