@@ -2,6 +2,7 @@ import { CloudUpload, Database, Server, PaperAirplane } from "heroicons-react";
 
 import bgImg from "../assets/cyber-bg.png";
 
+/* hero component */
 function Hero(): JSX.Element {
   const data = [
     <p className="flex px-4 py-2 text-slate-500">
@@ -18,9 +19,7 @@ function Hero(): JSX.Element {
     </p>,
   ];
 
-  const mappedData = data.map((e, i) => (
-    <div key={i}>{e}</div>
-  ));
+  const mappedData = data.map((e, i) => <div key={i}>{e}</div>);
 
   return (
     <div

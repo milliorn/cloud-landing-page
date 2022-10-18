@@ -6,6 +6,7 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 
+/* footer component */
 function Footer(): JSX.Element {
   const data = [
     {

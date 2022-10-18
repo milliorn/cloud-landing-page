@@ -3,7 +3,8 @@ import { Chip, SupportOutline } from "heroicons-react";
 
 import supportImg from "../assets/support.jpg";
 
-const Support = () => {
+/* support component */
+function Support(): JSX.Element {
   return (
     <div id="support" className="w-full mt-24">
       <div className="w-full h-[700px] bg-gray-900/90 absolute">
@@ -51,6 +52,7 @@ const Support = () => {
               </p>
             </div>
           </div>
+
           <div className="bg-white rounded-xl shadow-2xl">
             <div className="p-8">
               <div className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]">
@@ -70,6 +72,7 @@ const Support = () => {
               </p>
             </div>
           </div>
+
           <div className="bg-white rounded-xl shadow-2xl">
             <div className="p-8">
               <div className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]">
@@ -93,6 +96,6 @@ const Support = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Support;

@@ -3,9 +3,11 @@ import { Link } from "react-scroll";
 
 import { Menu, X } from "heroicons-react";
 
+/* navbar component */
 function Navbar(): JSX.Element {
   const [nav, setNav] = useState(false);
 
+  /*event handlers */
   const handleClick = () => setNav(!nav);
   const handleClose = () => setNav(!nav);
 

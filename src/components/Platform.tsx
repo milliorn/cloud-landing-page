@@ -1,6 +1,7 @@
 import { Check } from "heroicons-react";
 
-function AllInOne(): JSX.Element {
+/* platform component */
+function Platform(): JSX.Element {
   const data = [
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate consequuntur, soluta assumenda laboriosam iusto eius? Hic voluptates in laudantium, cum magni quis, veritatis quasi iusto ipsa, facilis nisi! Fuga, asperiores.",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate animi odio ipsam architecto, sequi nostrum recusandae quibusdam qui, assumenda temporibus quod! Laudantium modi id sed, corrupti hic ex error voluptatibus!",
@@ -35,4 +36,4 @@ function AllInOne(): JSX.Element {
   );
 }
 
-export default AllInOne;
+export default Platform;

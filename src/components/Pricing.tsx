@@ -1,6 +1,7 @@
 import { Check } from "heroicons-react";
 
-const Pricing = () => {
+/* pricing component */
+function Pricing(): JSX.Element {
   return (
     <div id="pricing" className="w-full text-white my-24">
       <div className="w-full h-[800px] bg-slate-900 absolute mix-blend-overlay"></div>
@@ -103,6 +104,6 @@ const Pricing = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Pricing;

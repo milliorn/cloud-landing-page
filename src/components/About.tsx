@@ -1,3 +1,4 @@
+/* about component */
 function About(): JSX.Element {
   const data = [
     {
