@@ -2,7 +2,26 @@ import { CloudUpload, Database, Server, PaperAirplane } from "heroicons-react";
 
 import bgImg from "../assets/cyber-bg.png";
 
-const Hero = () => {
+function Hero(): JSX.Element {
+  const data = [
+    <p className="flex px-4 py-2 text-slate-500">
+      <CloudUpload className="h-6 text-indigo-600" /> App Security
+    </p>,
+    <p className="flex px-4 py-2 text-slate-500">
+      <Database className="h-6 text-indigo-600" /> Dashboard Design
+    </p>,
+    <p className="flex px-4 py-2 text-slate-500">
+      <Server className="h-6 text-indigo-600" /> Cloud Data
+    </p>,
+    <p className="flex px-4 py-2 text-slate-500">
+      <PaperAirplane className="h-6 text-indigo-600" /> API
+    </p>,
+  ];
+
+  const mappedData = data.map((e, i) => (
+    <div key={i}>{e}</div>
+  )) as JSX.Element[];
+
   return (
     <div
       id="home"
@@ -29,23 +48,12 @@ const Hero = () => {
         >
           <p>Data Services</p>
           <div className="flex justify-between flex-wrap px-4">
-            <p className="flex px-4 py-2 text-slate-500">
-              <CloudUpload className="h-6 text-indigo-600" /> App Security
-            </p>
-            <p className="flex px-4 py-2 text-slate-500">
-              <Database className="h-6 text-indigo-600" /> Dashboard Design
-            </p>
-            <p className="flex px-4 py-2 text-slate-500">
-              <Server className="h-6 text-indigo-600" /> Cloud Data
-            </p>
-            <p className="flex px-4 py-2 text-slate-500">
-              <PaperAirplane className="h-6 text-indigo-600" /> API
-            </p>
+            {mappedData}
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Hero;
