@@ -18,7 +18,7 @@ function AllInOne(): JSX.Element {
         <p className="text-lg pt-2 pb-4">{e}</p>
       </div>
     </div>
-  )) as JSX.Element[];
+  ));
 
   return (
     <div id="platforms" className="w-full my-32">

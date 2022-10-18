@@ -20,7 +20,7 @@ function Hero(): JSX.Element {
 
   const mappedData = data.map((e, i) => (
     <div key={i}>{e}</div>
-  )) as JSX.Element[];
+  ));
 
   return (
     <div

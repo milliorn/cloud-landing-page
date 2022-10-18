@@ -53,7 +53,7 @@ function Footer(): JSX.Element {
         <li className="py-1">{e.l5}</li>
       </ul>
     </div>
-  )) as JSX.Element[];
+  ));
 
   return (
     <div className="w-full mt-24 bg-slate-900 text-gray-300 py-y px-2">
