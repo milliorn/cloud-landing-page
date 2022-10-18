@@ -58,7 +58,7 @@ function Pricing(): JSX.Element {
                 <Check className="w-8 mr-5 text-green-600" />
                 Lorem, ipsum dolor.
               </p>
-              <button type="button" className="w-full py-4 my-4">
+              <button className="w-full py-4 my-4">
                 Get Started
               </button>
             </div>
@@ -99,7 +99,7 @@ function Pricing(): JSX.Element {
                 <Check className="w-8 mr-5 text-green-600" />
                 Lorem, ipsum dolor.
               </p>
-              <button type="button" className="w-full py-4 my-4">
+              <button className="w-full py-4 my-4">
                 Get Started
               </button>
             </div>

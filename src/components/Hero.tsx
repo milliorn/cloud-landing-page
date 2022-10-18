@@ -35,7 +35,7 @@ function Hero(): JSX.Element {
             Cloud Management
           </h1>
           <p className="text-2xl">This is our Tech brand.</p>
-          <button type="button" className="py-3 px-6 sm:w-[60%] my-4">
+          <button className="py-3 px-6 sm:w-[60%] my-4">
             Get Started
           </button>
         </div>

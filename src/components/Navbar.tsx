@@ -44,12 +44,12 @@ function Navbar(): JSX.Element {
   const login = (
     <div className="hidden md:flex pr-4">
       <button
-        type="button"
+       
         className="border-none bg-transparent text-black mr-4"
       >
         Sign In
       </button>
-      <button type="button" className="px-8 py-3">
+      <button className="px-8 py-3">
         Sign Up
       </button>
     </div>
@@ -109,12 +109,12 @@ function Navbar(): JSX.Element {
 
       <div className="flex flex-col my-4">
         <button
-          type="button"
+         
           className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
         >
           Sign In
         </button>
-        <button type="button" className="px-8 py-3">
+        <button className="px-8 py-3">
           Sign Up
         </button>
       </div>
