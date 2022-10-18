@@ -6,7 +6,7 @@ function AllInOne(): JSX.Element {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate animi odio ipsam architecto, sequi nostrum recusandae quibusdam qui, assumenda temporibus quod! Laudantium modi id sed, corrupti hic ex error voluptatibus!",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Eligendi corporis architecto tenetur quam molestias, incidunt enim sapiente voluptatem odio reiciendis, dicta itaque dignissimos. Repudiandae magnam voluptas fugit quae numquam suscipit.",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel,perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
-  ] as string[];
+  ] as const;
 
   const mappedData = data.map((e, i) => (
     <div className="flex" key={i}>

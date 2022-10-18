@@ -12,7 +12,7 @@ function About(): JSX.Element {
       pText1: "100%",
       pText2: "Transactions",
     },
-  ] as const;
+  ];
 
   const mappedData = data.map((e, i) => (
     <div className="border py-8 rounded-xl shadow-xl" key={i}>
@@ -35,7 +35,6 @@ function About(): JSX.Element {
             perferendis neque laborum!
           </p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-1 px-2 text-center">
           {mappedData}
         </div>

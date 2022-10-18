@@ -19,7 +19,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:tsc": "tsc -p tsconfig.json -w",
+    "tsc:build": "tsc -p .",
+    "tsc:watch": "tsc -p . -w"
   },
   "eslintConfig": {
     "extends": [
