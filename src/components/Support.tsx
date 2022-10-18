@@ -31,8 +31,11 @@ function Support(): JSX.Element {
     },
   ] as const;
 
-  const columns = data.map((e, i) => (
-    <div className="bg-white rounded-xl shadow-2xl relative" key={i}>
+  const columns = data.map((e) => (
+    <div
+      className="bg-white rounded-xl shadow-2xl relative"
+      key={new Date().getTime()}
+    >
       <div className="p-8">
         <div className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]">
           {e.component}

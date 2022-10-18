@@ -9,8 +9,8 @@ function Platform(): JSX.Element {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel,perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
   ] as const;
 
-  const mappedData = data.map((e, i) => (
-    <div className="flex" key={i}>
+  const mappedData = data.map((e) => (
+    <div className="flex" key={new Date().getTime()}>
       <div>
         <Check className="w-7 mr-4 text-green-600" />
       </div>

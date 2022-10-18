@@ -43,8 +43,8 @@ function Footer(): JSX.Element {
     },
   ] as const;
 
-  const mappedData = data.map((e, i) => (
-    <div key={i}>
+  const mappedData = data.map((e) => (
+    <div key={new Date().getTime()}>
       <h6 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h6>
       <ul>
         <li className="py-1">{e.l1}</li>

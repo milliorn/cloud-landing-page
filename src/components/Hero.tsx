@@ -19,7 +19,7 @@ function Hero(): JSX.Element {
     </p>,
   ];
 
-  const mappedData = data.map((e, i) => <div key={i}>{e}</div>);
+  const mappedData = data.map((e) => <div key={new Date().getTime()}>{e}</div>);
 
   return (
     <div
@@ -35,9 +35,7 @@ function Hero(): JSX.Element {
             Cloud Management
           </h1>
           <p className="text-2xl">This is our Tech brand.</p>
-          <button className="py-3 px-6 sm:w-[60%] my-4">
-            Get Started
-          </button>
+          <button className="py-3 px-6 sm:w-[60%] my-4">Get Started</button>
         </div>
         <div>
           <img className="w-full invisible sm:visible" src={bgImg} alt="/" />
