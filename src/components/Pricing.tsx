@@ -1,4 +1,5 @@
 import { Check } from "heroicons-react";
+import uuid from "react-uuid";
 
 /* pricing component */
 function Pricing(): JSX.Element {
@@ -33,7 +34,9 @@ function Pricing(): JSX.Element {
   ] as const;
 
   const mappeddataCheckmark = dataCheckmark.map((e) => (
-    <div className="text-2xl">{checkMark(e)}</div>
+    <div key={uuid()} className="text-2xl">
+      {checkMark(e)}
+    </div>
   ));
 
   return (
