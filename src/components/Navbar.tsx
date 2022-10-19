@@ -1,7 +1,6 @@
+import { Menu, X } from "heroicons-react";
 import { useState } from "react";
 import { Link } from "react-scroll";
-
-import { Menu, X } from "heroicons-react";
 
 /* navbar component */
 function Navbar(): JSX.Element {
@@ -113,6 +112,12 @@ function Navbar(): JSX.Element {
 
   const hamburgerMenu = !nav ? <Menu /> : <X />;
 
+  const hamburger = (
+    <div className="md:hidden mr-4" onClick={handleClick}>
+      <div className="w-5">{hamburgerMenu}</div>
+    </div>
+  );
+
   return (
     <div className="w-screen sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
       <div className="px-2 flex justify-between items-center w-full h-full">
@@ -121,9 +126,7 @@ function Navbar(): JSX.Element {
           {navbarLinks}
         </div>
         {login}
-        <div className="md:hidden mr-4" onClick={handleClick}>
-          <div className="w-5">{hamburgerMenu}</div>
-        </div>
+        {hamburger}
       </div>
       {navHandlers}
     </div>

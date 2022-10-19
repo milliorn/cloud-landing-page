@@ -1,7 +1,5 @@
-import uuid from "react-uuid";
-
 import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
-
+import uuid from "react-uuid";
 import supportImg from "../assets/support.jpg";
 
 /* support component */

@@ -1,5 +1,5 @@
-import uuid from "react-uuid";
 import { Check } from "heroicons-react";
+import uuid from "react-uuid";
 
 /* platform component */
 function Platform(): JSX.Element {
@@ -12,8 +12,8 @@ function Platform(): JSX.Element {
 
   const mappedData = data.map((e) => (
     <div className="flex" key={uuid()}>
-      <div>
-        <Check className="w-7 mr-4 text-green-600" />
+      <div className="w-7 mr-4 text-green-600">
+        <Check />
       </div>
       <div>
         <h3 className="font-bold text-lg">Notifications</h3>

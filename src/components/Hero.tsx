@@ -1,7 +1,5 @@
+import { CloudUpload, Database, PaperAirplane, Server } from "heroicons-react";
 import uuid from "react-uuid";
-
-import { CloudUpload, Database, Server, PaperAirplane } from "heroicons-react";
-
 import bgImg from "../assets/cyber-bg.png";
 
 /* hero component */

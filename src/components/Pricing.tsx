@@ -2,10 +2,12 @@ import { Check } from "heroicons-react";
 
 /* pricing component */
 function Pricing(): JSX.Element {
+  /* create lorem text */
   const paraLorem = ({ text }: { text: string }): JSX.Element => (
     <p className="text-2xl py-8 text-slate-500">{text}</p>
   );
 
+  /* create checkmark icons */
   const checkMark = ({ text }: { text: string }): JSX.Element => (
     <div className="flex py-4">
       <div className="w-8 mr-5 text-green-600">
@@ -13,6 +15,10 @@ function Pricing(): JSX.Element {
       </div>
       {text}
     </div>
+  );
+
+  const getStarted = (
+    <button className="w-full py-4 -my-1 bottom-0">Get Started</button>
   );
 
   return (
@@ -72,9 +78,7 @@ function Pricing(): JSX.Element {
                 text: "Lorem, ipsum dolor.",
               })}
 
-              <button className="w-full py-4 -my-1 bottom-0">
-                Get Started
-              </button>
+              {getStarted}
             </div>
           </div>
 
@@ -116,9 +120,7 @@ function Pricing(): JSX.Element {
                 text: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
               })}
 
-              <button className="w-full py-4 -my-1 bottom-0">
-                Get Started
-              </button>
+              {getStarted}
             </div>
           </div>
         </div>
