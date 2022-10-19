@@ -8,7 +8,7 @@ function Pricing(): JSX.Element {
   );
 
   /* create checkmark icons */
-  const checkMark = ({ text }: { text: string }): JSX.Element => (
+  const checkMark = (text: string): JSX.Element => (
     <div className="flex py-4">
       <div className="w-8 mr-5 text-green-600">
         <Check />
@@ -17,11 +17,24 @@ function Pricing(): JSX.Element {
     </div>
   );
 
+  /* get started text on button */
   const getStarted = (
     <button type="button" className="w-full py-4 -my-1 bottom-0 bg-indigo-700">
       Get Started
     </button>
   );
+
+  const dataCheckmark = [
+    "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+    "Lorem ipsum dolor sit, amet consectetur.",
+    "Lorem ipsum dolor sit amet.",
+    "Lorem ipsum dolor sit.",
+    "Lorem, ipsum dolor.",
+  ] as const;
+
+  const mappeddataCheckmark = dataCheckmark.map((e) => (
+    <div className="text-2xl">{checkMark(e)}</div>
+  ));
 
   return (
     <div id="pricing" className="w-full text-white my-24">
@@ -60,26 +73,7 @@ function Pricing(): JSX.Element {
             })}
 
             <div className="text-2xl">
-              {checkMark({
-                text: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit, amet consectetur.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit amet.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit.",
-              })}
-
-              {checkMark({
-                text: "Lorem, ipsum dolor.",
-              })}
-
+              {mappeddataCheckmark}
               {getStarted}
             </div>
           </div>
@@ -101,27 +95,10 @@ function Pricing(): JSX.Element {
               {paraLorem({
                 text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, adipisci? Sapiente.?",
               })}
-
-              {checkMark({
-                text: "Lorem, ipsum dolor.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit amet.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit, amet consectetur.",
-              })}
-
-              {checkMark({
-                text: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
-              })}
-
+              {mappeddataCheckmark.map(
+                (_, idx) =>
+                  mappeddataCheckmark[mappeddataCheckmark.length - 1 - idx]
+              )}
               {getStarted}
             </div>
           </div>
