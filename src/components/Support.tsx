@@ -34,11 +34,9 @@ function Support(): JSX.Element {
         <p className="text-gray-600 text-xl  mb-12">{e.p}</p>
       </div>
 
-      <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
-        <span className="flex items-center text-indigo-600">
-          Contact Us <ArrowSmRight />
-        </span>
-      </div>
+      <span className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full flex items-center text-indigo-600">
+        Contact Us <ArrowSmRight />
+      </span>
     </div>
   ));
 
