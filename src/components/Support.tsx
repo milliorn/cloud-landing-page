@@ -1,21 +1,17 @@
-import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 import uuid from "react-uuid";
+
+import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
+
 import supportImg from "../assets/support.jpg";
 
 /* support component */
 function Support(): JSX.Element {
-  const smallArrowRight = (
-    <div className="w-5 ml-2">
-      <ArrowSmRight />
-    </div>
-  );
-
   const contactUs = (
-    <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
-      <div className="flex items-center text-indigo-600">
-        Contact Us
-        {smallArrowRight}
-      </div>
+    <div className="flex items-center text-indigo-600">
+      Contact Us
+      <span className="w-5 ml-2">
+        <ArrowSmRight />
+      </span>
     </div>
   );
 
@@ -46,7 +42,10 @@ function Support(): JSX.Element {
         <span className="font-bold text-2xl my-6">{e.span}</span>
         <p className="text-gray-600 text-xl  mb-12">{e.p}</p>
       </div>
-      {contactUs}
+
+      <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
+        {contactUs}
+      </div>
     </div>
   ));
 
