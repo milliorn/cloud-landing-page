@@ -1,3 +1,5 @@
+import uuid from "react-uuid";
+
 import {
   FaFacebook,
   FaGithub,
@@ -44,7 +46,7 @@ function Footer(): JSX.Element {
   ] as const;
 
   const mappedData = data.map((e) => (
-    <div key={new Date().getTime()}>
+    <div key={uuid()}>
       <h6 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h6>
       <ul>
         <li className="py-1">{e.l1}</li>
@@ -80,7 +82,7 @@ function Footer(): JSX.Element {
 
       <div className="flex flex-col max-w-[1280px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500">
         <p className="py-4">
-          © {new Date().getFullYear()} Lorem, ipsum. All rights reserved
+          © {new Date().getTime()} Lorem, ipsum. All rights reserved
         </p>
         <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
           <FaFacebook />

@@ -43,15 +43,10 @@ function Navbar(): JSX.Element {
 
   const login = (
     <div className="hidden md:flex pr-4">
-      <button
-       
-        className="border-none bg-transparent text-black mr-4"
-      >
+      <button className="border-none bg-transparent text-black mr-4">
         Sign In
       </button>
-      <button className="px-8 py-3">
-        Sign Up
-      </button>
+      <button className="px-8 py-3">Sign Up</button>
     </div>
   );
 
@@ -108,18 +103,15 @@ function Navbar(): JSX.Element {
       </li>
 
       <div className="flex flex-col my-4">
-        <button
-         
-          className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
-        >
+        <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
           Sign In
         </button>
-        <button className="px-8 py-3">
-          Sign Up
-        </button>
+        <button className="px-8 py-3">Sign Up</button>
       </div>
     </ul>
   );
+
+  const hamburgerMenu = !nav ? <Menu /> : <X />;
 
   return (
     <div className="w-screen sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
@@ -130,7 +122,7 @@ function Navbar(): JSX.Element {
         </div>
         {login}
         <div className="md:hidden mr-4" onClick={handleClick}>
-          {!nav ? <Menu className="w-5" /> : <X className="w-5" />}
+          <div className="w-5">{hamburgerMenu}</div>
         </div>
       </div>
       {navHandlers}

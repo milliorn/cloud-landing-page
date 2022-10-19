@@ -1,3 +1,4 @@
+import uuid from "react-uuid";
 import { Check } from "heroicons-react";
 
 /* platform component */
@@ -10,7 +11,7 @@ function Platform(): JSX.Element {
   ] as const;
 
   const mappedData = data.map((e) => (
-    <div className="flex" key={new Date().getTime()}>
+    <div className="flex" key={uuid()}>
       <div>
         <Check className="w-7 mr-4 text-green-600" />
       </div>

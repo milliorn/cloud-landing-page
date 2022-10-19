@@ -1,5 +1,6 @@
-import { Phone, ArrowSmRight } from "heroicons-react";
-import { Chip, SupportOutline } from "heroicons-react";
+import uuid from "react-uuid";
+
+import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 
 import supportImg from "../assets/support.jpg";
 
@@ -7,9 +8,12 @@ import supportImg from "../assets/support.jpg";
 function Support(): JSX.Element {
   const contactUs = (
     <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
-      <p className="flex items-center text-indigo-600">
-        Contact Us <ArrowSmRight className="w-5 ml-2" />
-      </p>
+      <div className="flex items-center text-indigo-600">
+        Contact Us
+        <div className="w-5 ml-2">
+          <ArrowSmRight />
+        </div>
+      </div>
     </div>
   );
 
@@ -32,10 +36,7 @@ function Support(): JSX.Element {
   ] as const;
 
   const columns = data.map((e) => (
-    <div
-      className="bg-white rounded-xl shadow-2xl relative"
-      key={new Date().getTime()}
-    >
+    <div className="bg-white rounded-xl shadow-2xl relative" key={uuid()}>
       <div className="p-8">
         <div className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]">
           {e.component}

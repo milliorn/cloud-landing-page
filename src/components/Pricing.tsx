@@ -2,6 +2,19 @@ import { Check } from "heroicons-react";
 
 /* pricing component */
 function Pricing(): JSX.Element {
+  const paraLorem = ({ text }: { text: string }): JSX.Element => (
+    <p className="text-2xl py-8 text-slate-500">{text}</p>
+  );
+
+  const checkMark = ({ text }: { text: string }): JSX.Element => (
+    <div className="flex py-4">
+      <div className="w-8 mr-5 text-green-600">
+        <Check />
+      </div>
+      {text}
+    </div>
+  );
+
   return (
     <div id="pricing" className="w-full text-white my-24">
       <div className="w-full h-[800px] bg-slate-900 absolute mix-blend-overlay"></div>
@@ -33,36 +46,38 @@ function Pricing(): JSX.Element {
                 </span>
               </p>
             </div>
-            <p className="text-2xl py-8 text-slate-500">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Reiciendis, eligendi?
-            </p>
+
+            {paraLorem({
+              text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, eligendi?",
+            })}
+
             <div className="text-2xl">
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor, sit amet consectetur adipisicing.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
-              </p>
-              <button className="w-full py-4 my-4">
+              {checkMark({
+                text: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit, amet consectetur.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit amet.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit.",
+              })}
+
+              {checkMark({
+                text: "Lorem, ipsum dolor.",
+              })}
+
+              <button className="w-full py-4 -my-1 bottom-0">
                 Get Started
               </button>
             </div>
           </div>
+
           <div className="bg-white text-slate-900 m-4 p-8 rounded-xl shadow-2xl relative">
             <span className="uppercase px-3 py-1 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">
               Premium
@@ -75,31 +90,33 @@ function Pricing(): JSX.Element {
                 </span>
               </p>
             </div>
-            <p className="text-2xl py-8 text-slate-500">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, hic.
-            </p>
+
             <div className="text-2xl">
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur adipisicing.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
-              </p>
-              <button className="w-full py-4 my-4">
+              {paraLorem({
+                text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, adipisci? Sapiente.?",
+              })}
+
+              {checkMark({
+                text: "Lorem, ipsum dolor.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit amet.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit, amet consectetur.",
+              })}
+
+              {checkMark({
+                text: "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+              })}
+
+              <button className="w-full py-4 -my-1 bottom-0">
                 Get Started
               </button>
             </div>
