@@ -4,13 +4,17 @@ import supportImg from "../assets/support.jpg";
 
 /* support component */
 function Support(): JSX.Element {
+  const smallArrowRight = (
+    <div className="w-5 ml-2">
+      <ArrowSmRight />
+    </div>
+  );
+
   const contactUs = (
     <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
       <div className="flex items-center text-indigo-600">
         Contact Us
-        <div className="w-5 ml-2">
-          <ArrowSmRight />
-        </div>
+        {smallArrowRight}
       </div>
     </div>
   );
