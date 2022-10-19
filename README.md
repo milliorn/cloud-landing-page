@@ -13,3 +13,7 @@ tsconfig -> <https://www.typescriptlang.org/tsconfig>
 react-scroll -> <https://www.npmjs.com/package/react-scroll>
 
 heroicons -> <https://github.com/tailwindlabs/heroicons>
+
+react-icons -> <https://react-icons.github.io/react-icons/>
+
+react-uuid -> <https://github.com/RickBr0wn/react-uuid>
