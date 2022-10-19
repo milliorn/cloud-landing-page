@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cloud-landing-page/static/css/main.427d5ecf.css",
+    "main.js": "/cloud-landing-page/static/js/main.80584c21.js",
+    "static/media/support.jpg": "/cloud-landing-page/static/media/support.13dffa5bdb3a671bcb5b.jpg",
+    "static/media/cyber-bg.png": "/cloud-landing-page/static/media/cyber-bg.ca707921f9e0ce144367.png",
+    "index.html": "/cloud-landing-page/index.html",
+    "main.427d5ecf.css.map": "/cloud-landing-page/static/css/main.427d5ecf.css.map",
+    "main.80584c21.js.map": "/cloud-landing-page/static/js/main.80584c21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.427d5ecf.css",
+    "static/js/main.80584c21.js"
+  ]
+}
