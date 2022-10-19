@@ -71,11 +71,10 @@ function Pricing(): JSX.Element {
               </p>
             </div>
 
-            {paraLorem({
-              text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, eligendi?",
-            })}
-
             <div className="text-2xl">
+              {paraLorem({
+                text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, eligendi?",
+              })}
               {mappeddataCheckmark}
               {getStarted}
             </div>

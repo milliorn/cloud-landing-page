@@ -1,4 +1,4 @@
-import uuid from 'react-uuid';
+import uuid from "react-uuid";
 
 /* about component */
 function About(): JSX.Element {
@@ -15,13 +15,10 @@ function About(): JSX.Element {
       pText1: "100%",
       pText2: "Transactions",
     },
-  ];
+  ] as const;
 
   const mappedData = data.map((e) => (
-    <div
-      className="border py-8 rounded-xl shadow-xl"
-      key={uuid()}
-    >
+    <div className="border py-8 rounded-xl shadow-xl" key={uuid()}>
       <p className="text-6xl font-bold text-indigo-600">{e.pText1}</p>
       <p className="text-gray-400 mt-2">{e.pText2}</p>
     </div>
