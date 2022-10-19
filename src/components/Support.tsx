@@ -35,9 +35,9 @@ function Support(): JSX.Element {
       </div>
 
       <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
-        <div className="flex items-center text-indigo-600">
-          <span className="mr-2">Contact Us</span> <ArrowSmRight />
-        </div>
+        <span className="flex items-center text-indigo-600">
+          Contact Us <ArrowSmRight />
+        </span>
       </div>
     </div>
   ));
