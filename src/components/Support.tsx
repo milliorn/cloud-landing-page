@@ -6,15 +6,6 @@ import supportImg from "../assets/support.jpg";
 
 /* support component */
 function Support(): JSX.Element {
-  const contactUs = (
-    <div className="flex items-center text-indigo-600">
-      Contact Us
-      <span className="w-5 ml-2">
-        <ArrowSmRight />
-      </span>
-    </div>
-  );
-
   const data = [
     {
       component: <Phone />,
@@ -44,7 +35,9 @@ function Support(): JSX.Element {
       </div>
 
       <div className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full">
-        {contactUs}
+        <div className="flex items-center text-indigo-600">
+          <span className="mr-2">Contact Us</span> <ArrowSmRight />
+        </div>
       </div>
     </div>
   ));
