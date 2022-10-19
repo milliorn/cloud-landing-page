@@ -1,6 +1,44 @@
 import { Check } from "heroicons-react";
+import uuid from "react-uuid";
 
-const Pricing = () => {
+/* pricing component */
+function Pricing(): JSX.Element {
+  /* create lorem text */
+  const paraLorem = ({ text }: { text: string }): JSX.Element => (
+    <p className="text-2xl py-8 text-slate-500">{text}</p>
+  );
+
+  /* create checkmark icons */
+  const checkMark = (text: string): JSX.Element => (
+    <div className="flex py-4">
+      <div className="w-8 mr-5 text-green-600">
+        <Check />
+      </div>
+      {text}
+    </div>
+  );
+
+  /* get started text on button */
+  const getStarted = (
+    <button type="button" className="w-full py-4 -my-1 bottom-0 bg-indigo-700">
+      Get Started
+    </button>
+  );
+
+  const dataCheckmark = [
+    "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+    "Lorem ipsum dolor sit, amet consectetur.",
+    "Lorem ipsum dolor sit amet.",
+    "Lorem ipsum dolor sit.",
+    "Lorem, ipsum dolor.",
+  ] as const;
+
+  const mappeddataCheckmark = dataCheckmark.map((e) => (
+    <div key={uuid()} className="text-2xl">
+      {checkMark(e)}
+    </div>
+  ));
+
   return (
     <div id="pricing" className="w-full text-white my-24">
       <div className="w-full h-[800px] bg-slate-900 absolute mix-blend-overlay" />
@@ -32,34 +70,17 @@ const Pricing = () => {
                 </span>
               </p>
             </div>
-            <p className="text-2xl py-8 text-slate-500">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Reiciendis, eligendi?
-            </p>
+
+            {paraLorem({
+              text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, eligendi?",
+            })}
+
             <div className="text-2xl">
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor, sit amet consectetur adipisicing.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
-              </p>
-              <button className="w-full py-4 my-4">Get Started</button>
+              {mappeddataCheckmark}
+              {getStarted}
             </div>
           </div>
+
           <div className="bg-white text-slate-900 m-4 p-8 rounded-xl shadow-2xl relative">
             <span className="uppercase px-3 py-1 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">
               Premium
@@ -72,37 +93,22 @@ const Pricing = () => {
                 </span>
               </p>
             </div>
-            <p className="text-2xl py-8 text-slate-500">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, hic.
-            </p>
+
             <div className="text-2xl">
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur adipisicing.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit amet.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem ipsum dolor sit.
-              </p>
-              <p className="flex py-4">
-                <Check className="w-8 mr-5 text-green-600" />
-                Lorem, ipsum dolor.
-              </p>
-              <button className="w-full py-4 my-4">Get Started</button>
+              {paraLorem({
+                text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, adipisci? Sapiente.?",
+              })}
+              {mappeddataCheckmark.map(
+                (_, idx) =>
+                  mappeddataCheckmark[mappeddataCheckmark.length - 1 - idx]
+              )}
+              {getStarted}
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Pricing;

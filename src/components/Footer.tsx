@@ -1,3 +1,4 @@
+import uuid from "react-uuid";
 import {
   FaFacebook,
   FaGithub,
@@ -6,6 +7,7 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 
+/* footer component */
 function Footer(): JSX.Element {
   const data = [
     {
@@ -42,8 +44,8 @@ function Footer(): JSX.Element {
     },
   ] as const;
 
-  const mappedData = data.map((e, i) => (
-    <div key={i}>
+  const mappedData = data.map((e) => (
+    <div key={uuid()}>
       <h6 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h6>
       <ul>
         <li className="py-1">{e.l1}</li>
@@ -72,7 +74,9 @@ function Footer(): JSX.Element {
               type="email"
               placeholder="Enter email.."
             />
-            <button className="p-2 mb-4">Subscribe</button>
+            <button type="button" className="p-2 mb-4 bg-indigo-700">
+              Subscribe
+            </button>
           </form>
         </div>
       </div>

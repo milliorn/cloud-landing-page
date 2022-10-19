@@ -1,6 +1,8 @@
 import { Check } from "heroicons-react";
+import uuid from "react-uuid";
 
-function AllInOne(): JSX.Element {
+/* platform component */
+function Platform(): JSX.Element {
   const data = [
     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate consequuntur, soluta assumenda laboriosam iusto eius? Hic voluptates in laudantium, cum magni quis, veritatis quasi iusto ipsa, facilis nisi! Fuga, asperiores.",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate animi odio ipsam architecto, sequi nostrum recusandae quibusdam qui, assumenda temporibus quod! Laudantium modi id sed, corrupti hic ex error voluptatibus!",
@@ -8,10 +10,10 @@ function AllInOne(): JSX.Element {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel,perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
   ] as const;
 
-  const mappedData = data.map((e, i) => (
-    <div className="flex" key={i}>
-      <div>
-        <Check className="w-7 mr-4 text-green-600" />
+  const mappedData = data.map((e) => (
+    <div className="flex" key={uuid()}>
+      <div className="w-7 mr-4 text-green-600">
+        <Check />
       </div>
       <div>
         <h3 className="font-bold text-lg">Notifications</h3>
@@ -35,4 +37,4 @@ function AllInOne(): JSX.Element {
   );
 }
 
-export default AllInOne;
+export default Platform;

@@ -1,11 +1,12 @@
+import { Menu, X } from "heroicons-react";
 import { useState } from "react";
 import { Link } from "react-scroll";
 
-import { Menu, X } from "heroicons-react";
-
+/* navbar component */
 function Navbar(): JSX.Element {
   const [nav, setNav] = useState(false);
 
+  /*event handlers */
   const handleClick = () => setNav(!nav);
   const handleClose = () => setNav(!nav);
 
@@ -41,10 +42,15 @@ function Navbar(): JSX.Element {
 
   const login = (
     <div className="hidden md:flex pr-4">
-      <button className="border-none bg-transparent text-black mr-4">
+      <button
+        type="button"
+        className="border-none bg-transparent text-black mr-4"
+      >
         Sign In
       </button>
-      <button className="px-8 py-3">Sign Up</button>
+      <button type="button" className="px-8 py-3 bg-indigo-700">
+        Sign Up
+      </button>
     </div>
   );
 
@@ -101,13 +107,22 @@ function Navbar(): JSX.Element {
       </li>
 
       <div className="flex flex-col my-4">
-        <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+        <button
+          type="button"
+          className="bg-transparent text-indigo-700 px-8 py-3 mb-4"
+        >
           Sign In
         </button>
-        <button className="px-8 py-3">Sign Up</button>
+        <button type="button" className="px-8 py-3 bg-indigo-700">
+          Sign Up
+        </button>
       </div>
     </ul>
   );
+
+  const hamburgerMenu = !nav ? <Menu /> : <X />;
+
+  const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (
     <div className="w-screen sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
@@ -118,7 +133,7 @@ function Navbar(): JSX.Element {
         </div>
         {login}
         <div className="md:hidden mr-4" onClick={handleClick}>
-          {!nav ? <Menu className="w-5" /> : <X className="w-5" />}
+          {hamburger}
         </div>
       </div>
       {navHandlers}
