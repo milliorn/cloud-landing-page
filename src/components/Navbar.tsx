@@ -112,11 +112,7 @@ function Navbar(): JSX.Element {
 
   const hamburgerMenu = !nav ? <Menu /> : <X />;
 
-  const hamburger = (
-    <div className="md:hidden mr-4" onClick={handleClick}>
-      <div className="w-5">{hamburgerMenu}</div>
-    </div>
-  );
+  const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (
     <div className="w-screen sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
@@ -126,7 +122,9 @@ function Navbar(): JSX.Element {
           {navbarLinks}
         </div>
         {login}
-        {hamburger}
+        <div className="md:hidden mr-4" onClick={handleClick}>
+          {hamburger}
+        </div>
       </div>
       {navHandlers}
     </div>

@@ -1,9 +1,11 @@
+import uuid from "react-uuid";
 import {
   FaFacebook,
   FaGithub,
-  FaInstagram, FaTwitch, FaTwitter
+  FaInstagram,
+  FaTwitter,
+  FaTwitch,
 } from "react-icons/fa";
-import uuid from "react-uuid";
 
 /* footer component */
 function Footer(): JSX.Element {
