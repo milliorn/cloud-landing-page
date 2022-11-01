@@ -1,11 +1,6 @@
 import uuid from "react-uuid";
-import {
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaTwitter,
-  FaTwitch,
-} from "react-icons/fa";
+import { FooterForm } from "./FooterForm";
+import { FooterSocialMedia } from "./FooterSocialMedia";
 
 /* footer component */
 function Footer(): JSX.Element {
@@ -68,16 +63,7 @@ function Footer(): JSX.Element {
           <p className="py-4">
             The latest news, articles, and resources, sent to your inbox weekly.
           </p>
-          <form className="flex flex-col sm:flex-row">
-            <input
-              className="w-full p-2 mr-4 rounded-md mb-4"
-              type="email"
-              placeholder="Enter email.."
-            />
-            <button type="button" className="p-2 mb-4 bg-indigo-700">
-              Subscribe
-            </button>
-          </form>
+          <FooterForm />
         </div>
       </div>
 
@@ -85,13 +71,7 @@ function Footer(): JSX.Element {
         <p className="py-4">
           © {new Date().getFullYear()} Lorem, ipsum. All rights reserved
         </p>
-        <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
-          <FaFacebook />
-          <FaInstagram />
-          <FaTwitter />
-          <FaTwitch />
-          <FaGithub />
-        </div>
+        <FooterSocialMedia />
       </div>
     </div>
   );

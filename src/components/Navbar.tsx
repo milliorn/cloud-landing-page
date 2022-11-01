@@ -1,6 +1,8 @@
 import { Menu, X } from "heroicons-react";
 import { useState } from "react";
-import { Link } from "react-scroll";
+import { Login } from "./Login";
+import { NavbarLinks } from "./NavbarLinks";
+import { NavHandlers } from "./NavHandlers";
 
 /* navbar component */
 function Navbar(): JSX.Element {
@@ -11,118 +13,7 @@ function Navbar(): JSX.Element {
   /*event handler */
   const handleClose = () => setNav(!nav);
 
-  const navbarLinks = (
-    <ul className="hidden md:flex">
-      <li>
-        <Link to="home" smooth duration={500}>
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link to="about" smooth offset={-200} duration={500}>
-          About
-        </Link>
-      </li>
-      <li>
-        <Link to="support" smooth offset={-50} duration={500}>
-          Support
-        </Link>
-      </li>
-      <li>
-        <Link to="platforms" smooth offset={-100} duration={500}>
-          Platforms
-        </Link>
-      </li>
-      <li>
-        <Link to="pricing" smooth offset={-50} duration={500}>
-          Pricing
-        </Link>
-      </li>
-    </ul>
-  );
-
-  const login = (
-    <div className="hidden md:flex pr-4">
-      <button
-        type="button"
-        className="border-none bg-transparent text-black mr-4"
-      >
-        Sign In
-      </button>
-      <button type="button" className="px-8 py-3 bg-indigo-700">
-        Sign Up
-      </button>
-    </div>
-  );
-
-  const navHandlers = (
-    <ul className={!nav ? "hidden" : "absolute bg-zinc-200 w-full px-8"}>
-      <li className="border-b-2 border-zinc-300 w-full">
-        <Link onClick={handleClose} to="home" smooth duration={500}>
-          Home
-        </Link>
-      </li>
-      <li className="border-b-2 border-zinc-300 w-full">
-        <Link
-          onClick={handleClose}
-          to="about"
-          smooth
-          offset={-200}
-          duration={500}
-        >
-          About
-        </Link>
-      </li>
-      <li className="border-b-2 border-zinc-300 w-full">
-        <Link
-          onClick={handleClose}
-          to="support"
-          smooth
-          offset={-50}
-          duration={500}
-        >
-          Support
-        </Link>
-      </li>
-      <li className="border-b-2 border-zinc-300 w-full">
-        <Link
-          onClick={handleClose}
-          to="platforms"
-          smooth
-          offset={-100}
-          duration={500}
-        >
-          Platforms
-        </Link>
-      </li>
-      <li className="border-b-2 border-zinc-300 w-full">
-        <Link
-          onClick={handleClose}
-          to="pricing"
-          smooth
-          offset={-50}
-          duration={500}
-        >
-          Pricing
-        </Link>
-      </li>
-
-      <div className="flex flex-col my-4">
-        <button
-          type="button"
-          className="bg-transparent text-indigo-700 px-8 py-3 mb-4"
-        >
-          Sign In
-        </button>
-        <button type="button" className="px-8 py-3 bg-indigo-700">
-          Sign Up
-        </button>
-      </div>
-    </ul>
-  );
-
   const hamburgerMenu = !nav ? <Menu /> : <X />;
-
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (
@@ -130,14 +21,14 @@ function Navbar(): JSX.Element {
       <div className="px-2 flex justify-between items-center w-full h-full">
         <div className="flex items-center">
           <h1 className="text-3xl font-bold mr-4 sm:text-4xl">Lorem ipsum</h1>
-          {navbarLinks}
+          <NavbarLinks />
         </div>
-        {login}
+        <Login />
         <div className="md:hidden mr-4" onClick={handleClick}>
           {hamburger}
         </div>
       </div>
-      {navHandlers}
+      <NavHandlers nav={nav} handleClose={handleClose} />
     </div>
   );
 }

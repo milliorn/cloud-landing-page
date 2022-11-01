@@ -1,0 +1,21 @@
+import { PricingCardLeft } from "./PricingCardLeft";
+
+/* create pricing element */
+export function PricingStandard(): JSX.Element {
+  return (
+    <div className="bg-white text-slate-900 m-4 p-8 rounded-xl shadow-2xl relative">
+      <span className="uppercase px-3 py-1 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">
+        Standard
+      </span>
+      <div>
+        <p className="text-6xl font-bold py-4 flex">
+          $49
+          <span className="text-xl text-slate-500 flex flex-col justify-end">
+            /mo
+          </span>
+        </p>
+      </div>
+      <PricingCardLeft />
+    </div>
+  );
+}

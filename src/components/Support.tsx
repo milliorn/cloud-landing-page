@@ -3,6 +3,7 @@ import uuid from "react-uuid";
 import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 
 import supportImg from "../assets/support.jpg";
+import { SupportText } from "./SupportText";
 
 /* support component */
 function Support(): JSX.Element {
@@ -51,21 +52,7 @@ function Support(): JSX.Element {
       </div>
 
       <div className="max-w-[1280px] mx-auto text-white relative">
-        <div className="px-4 py-12">
-          <h2 className="text-3xl pt-8 text-slate-300 uppercase text-center">
-            Support
-          </h2>
-          <h3 className="sm:text-5xl font-bold py-6 text-center capitalize">
-            Finding the right team
-          </h3>
-          <p className="py-4 sm:text-3xl text-slate-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-            quaerat quas expedita consequuntur tenetur dolorum dolore aliquid
-            deserunt. Excepturi molestias voluptatem praesentium aut deserunt
-            iusto illo neque tenetur alias voluptate.
-          </p>
-        </div>
-
+        <SupportText />
         <div className="grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black">
           {columns}
         </div>
