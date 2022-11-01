@@ -6,8 +6,9 @@ import { Link } from "react-scroll";
 function Navbar(): JSX.Element {
   const [nav, setNav] = useState(false);
 
-  /*event handlers */
+  /*event handler */
   const handleClick = () => setNav(!nav);
+  /*event handler */
   const handleClose = () => setNav(!nav);
 
   const navbarLinks = (
