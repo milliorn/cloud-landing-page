@@ -3,6 +3,8 @@
 [![Dependency Review](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml)
 [![Lint Code Base](https://github.com/milliorn/cloud-landing-page/actions/workflows/super-linter.yml/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/super-linter.yml)
 [![pages-build-deployment](https://github.com/milliorn/cloud-landing-page/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/pages/pages-build-deployment)
+[![DeepSource](https://deepsource.io/gh/milliorn/cloud-landing-page.svg/?label=active+issues&show_trend=true&token=zgdHIBvFS0ienR8oRIeZmdOL)](https://deepsource.io/gh/milliorn/cloud-landing-page/?ref=repository-badge)
+[![DeepSource](https://deepsource.io/gh/milliorn/cloud-landing-page.svg/?label=resolved+issues&show_trend=true&token=zgdHIBvFS0ienR8oRIeZmdOL)](https://deepsource.io/gh/milliorn/cloud-landing-page/?ref=repository-badge)
 
 typescriptlang docs -> <https://www.typescriptlang.org/docs/handbook/react.html>
 
