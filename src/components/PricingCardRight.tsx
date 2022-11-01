@@ -10,11 +10,10 @@ export function PricingCardRight(): JSX.Element {
       <p className="text-2xl py-8 text-slate-500">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste,
         adipisci? Sapiente.?
-      </p>{" "}
-      {mappeddataCheckmark.map(
-        (_: any, idx: number) =>
-          mappeddataCheckmark[mappeddataCheckmark.length - 1 - idx]
-      )}
+      </p>
+      {mappeddataCheckmark.map((_: object, idx: number): JSX.Element => {
+        return mappeddataCheckmark[mappeddataCheckmark.length - 1 - idx];
+      })}
       <GetStarted />
     </div>
   );
