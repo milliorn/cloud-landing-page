@@ -1,4 +1,5 @@
 import { PricingCardRight } from "./PricingCardRight";
+import { PricingMonth } from "./PricingMonth";
 
 /* create pricing element */
 export function PricingPremium(): JSX.Element {
@@ -10,9 +11,7 @@ export function PricingPremium(): JSX.Element {
       <div>
         <p className="text-6xl font-bold py-4 flex">
           $99
-          <span className="text-xl text-slate-500 flex flex-col justify-end">
-            /mo
-          </span>
+          <PricingMonth />
         </p>
       </div>
       <PricingCardRight />

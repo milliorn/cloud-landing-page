@@ -1,3 +1,4 @@
+/* populate element with text */
 export function SupportText(): JSX.Element {
   return (
     <div className="px-4 py-12">

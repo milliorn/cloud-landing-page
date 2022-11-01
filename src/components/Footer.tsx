@@ -1,9 +1,9 @@
 import uuid from "react-uuid";
-import { FooterForm } from "./FooterForm";
+import { FooterEmail } from "./FooterEmail";
 import { FooterSocialMedia } from "./FooterSocialMedia";
 
 /* footer component */
-function Footer(): JSX.Element {
+export default function Footer(): JSX.Element {
   const data = [
     {
       heading: "Solutions",
@@ -56,15 +56,7 @@ function Footer(): JSX.Element {
     <div className="w-full mt-24 bg-slate-900 text-gray-300 py-y px-2">
       <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-6 border-b-2 border-gray-600 py-8">
         {mappedData}
-        <div className="col-span-2 pt-8 md p-4:sm:pt-2">
-          <p className="font-bold uppercase text-center">
-            Subscribe to our newsletter
-          </p>
-          <p className="py-4">
-            The latest news, articles, and resources, sent to your inbox weekly.
-          </p>
-          <FooterForm />
-        </div>
+        {FooterEmail()}
       </div>
 
       <div className="flex flex-col max-w-[1280px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500">
@@ -76,5 +68,3 @@ function Footer(): JSX.Element {
     </div>
   );
 }
-
-export default Footer;
