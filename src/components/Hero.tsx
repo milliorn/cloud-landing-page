@@ -1,8 +1,8 @@
 import { CloudUpload, Database, PaperAirplane, Server } from "heroicons-react";
 import uuid from "react-uuid";
-import bgImg from "../assets/cyber-bg.png";
 import { HeroDataServices } from "./HeroDataServices";
-import { HeroGetStarted } from "./HeroGetStarted";
+import { HeroHeading } from "./HeroHeading";
+import { HeroImage } from "./HeroImage";
 
 const data = [
   { component: <CloudUpload />, p: "App Security" },
@@ -26,19 +26,8 @@ export default function Hero(): JSX.Element {
       className="w-full h-screen bg-zinc-200 flex flex-col justify-between"
     >
       <div className="grid md:grid-cols-2 max-w-[1280px] m-auto">
-        <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
-          <p className="text-2xl mt-2 sm:mt-0">
-            Unique Sequencing & Production
-          </p>
-          <h1 className="py-3 text-5xl md:text-7xl font-bold">
-            Cloud Management
-          </h1>
-          <p className="text-2xl">This is our Tech brand.</p>
-          <HeroGetStarted />
-        </div>
-        <div>
-          <img className="w-full invisible sm:visible" src={bgImg} alt="/" />
-        </div>
+        <HeroHeading />
+        <HeroImage />
         <HeroDataServices />
       </div>
     </div>

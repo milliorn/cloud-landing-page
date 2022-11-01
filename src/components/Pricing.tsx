@@ -1,7 +1,6 @@
 import uuid from "react-uuid";
 import { CheckMark } from "./CheckMark";
-import { PricingPremium } from "./PricingPremium";
-import { PricingStandard } from "./PricingStandard";
+import { PricingCards } from "./PricingCards";
 
 /* create lorem text */
 export function paraLorem({ text }: { text: string }): void {
@@ -42,11 +41,7 @@ export default function Pricing(): JSX.Element {
             libero sed quibusdam.
           </p>
         </div>
-
-        <div className="grid md:grid-cols-2">
-          <PricingStandard />
-          <PricingPremium />
-        </div>
+        <PricingCards />
       </div>
     </div>
   );
