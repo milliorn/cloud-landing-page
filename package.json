@@ -45,7 +45,7 @@
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
-    "@types/react-scroll": "1.8.4",
+    "@types/react-scroll": "1.8.5",
     "@types/react-dom": "18.0.9",
     "autoprefixer": "10.4.13",
     "gh-pages": "4.0.0",
