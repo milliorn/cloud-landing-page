@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
+    "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-scroll": "1.8.6",
     "@types/react-dom": "18.0.10",
