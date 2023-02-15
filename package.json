@@ -46,7 +46,7 @@
     "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/react-scroll": "1.8.6",
-    "@types/react-dom": "18.0.10",
+    "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.13",
     "gh-pages": "5.0.0",
     "postcss": "8.4.21",
