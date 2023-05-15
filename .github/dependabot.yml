@@ -5,14 +5,15 @@
 
 version: 2
 updates:
-  - package-ecosystem: "composer"
-    # Files stored in repository root
-    directory: "/"
-    schedule:
-      interval: "weekly"
 
-  - package-ecosystem: "npm"
-    # Files stored in `app` directory
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
