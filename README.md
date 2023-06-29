@@ -1,25 +1,62 @@
-# cloud-landing-page
+# Cloud Landing Page
 
 [![Dependency Review](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml)
-[![Lint Code Base](https://github.com/milliorn/cloud-landing-page/actions/workflows/super-linter.yml/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/super-linter.yml)
-[![pages-build-deployment](https://github.com/milliorn/cloud-landing-page/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/pages/pages-build-deployment)
-[![DeepSource](https://deepsource.io/gh/milliorn/cloud-landing-page.svg/?label=active+issues&show_trend=true&token=zgdHIBvFS0ienR8oRIeZmdOL)](https://deepsource.io/gh/milliorn/cloud-landing-page/?ref=repository-badge)
-[![DeepSource](https://deepsource.io/gh/milliorn/cloud-landing-page.svg/?label=resolved+issues&show_trend=true&token=zgdHIBvFS0ienR8oRIeZmdOL)](https://deepsource.io/gh/milliorn/cloud-landing-page/?ref=repository-badge)
 
-typescriptlang docs -> <https://www.typescriptlang.org/docs/handbook/react.html>
+A landing page template built with Typescript, React, and Tailwind CSS.
 
-react docs -> <https://create-react-app.dev>
+## Table of Contents
 
-Getting Started -> <https://create-react-app.dev/docs/getting-started>
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Resources](#resources)
+- [Contributing](#contributing)
+- [License](#license)
 
-Install Tailwind React -> <https://tailwindcss.com/docs/guides/create-react-app>
+## About
 
-tsconfig -> <https://www.typescriptlang.org/tsconfig>
+This project is a landing page template built with Typescript, React, and Tailwind CSS. It provides a responsive and visually appealing design for showcasing cloud-based services or products.
 
-react-scroll -> <https://www.npmjs.com/package/react-scroll>
+## Installation
 
-heroicons -> <https://github.com/tailwindlabs/heroicons>
+To get started with this project, you'll need to follow these steps:
 
-react-icons -> <https://react-icons.github.io/react-icons/>
+1. Clone the repository: `git clone https://github.com/milliorn/cloud-landing-page.git`
+2. Navigate to the project directory: `cd cloud-landing-page`
+3. Install the dependencies: `npm install`
 
-react-uuid -> <https://github.com/RickBr0wn/react-uuid>
+## Usage
+
+To run the project locally, use the following command:
+
+```bash
+npm run start
+```
+
+This will start the development server, and you can view the website in your browser at [http://localhost:3000](http://localhost:3000).
+
+## Resources
+
+Here are some resources related to the technologies used in this project:
+
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/handbook/react.html)
+- [React Documentation](https://create-react-app.dev)
+- [Create React App - Getting Started](https://create-react-app.dev/docs/getting-started)
+- [Install Tailwind CSS with React](https://tailwindcss.com/docs/guides/create-react-app)
+- [tsconfig Documentation](https://www.typescriptlang.org/tsconfig)
+- [react-scroll Package](https://www.npmjs.com/package/react-scroll)
+- [Heroicons](https://github.com/tailwindlabs/heroicons)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [react-uuid Package](https://github.com/RickBr0wn/react-uuid)
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Preview
+
+![Cloud Landing Page](public/preview.png)
