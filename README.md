@@ -12,6 +12,7 @@ A landing page template built with Typescript, React, and Tailwind CSS.
 - [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
+- [Preview](#preview)
 
 ## About
 
