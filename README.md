@@ -1,7 +1,5 @@
 # Cloud Landing Page
 
-[![Dependency Review](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/milliorn/cloud-landing-page/actions/workflows/dependency-review.yml)
-
 A landing page template built with Typescript, React, and Tailwind CSS.
 
 ## Table of Contents
