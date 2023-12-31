@@ -22,7 +22,7 @@ function About(): JSX.Element {
   const mappedData = data.map((e) => (
     <div className="border py-8 rounded-xl shadow-xl" key={uuid()}>
       <p className="text-6xl font-bold text-indigo-600">{e.pText1}</p>
-      <p className="text-gray-400 mt-2">{e.pText2}</p>
+      <p className="text-gray-900 mt-2">{e.pText2}</p>
     </div>
   ));
 
