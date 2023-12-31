@@ -1,4 +1,4 @@
-import bgImg from "../assets/cyber-bg.png";
+import bgImg from "../assets/cyber-bg.webp";
 
 /* creates hero image */
 export function HeroImage(): JSX.Element {
