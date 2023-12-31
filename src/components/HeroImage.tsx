@@ -4,10 +4,12 @@ import bgImg from "../assets/cyber-bg.webp";
 export function HeroImage(): JSX.Element {
   return (
     <div>
-      <img
-        className="w-full invisible sm:visible"
-        src={bgImg}
-        alt="hero logo"
+      <img 
+        className="w-full invisible sm:visible" 
+        src={bgImg} 
+        alt="Descriptive alt text"
+        width={829}
+        height={600}
       />
     </div>
   );
