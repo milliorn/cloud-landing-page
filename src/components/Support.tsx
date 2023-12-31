@@ -2,7 +2,7 @@ import uuid from "react-uuid";
 
 import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 
-import supportImg from "../assets/support.jpg";
+import supportImg from "../assets/support.webp";
 import { SupportText } from "./SupportText";
 
 /* support component */
