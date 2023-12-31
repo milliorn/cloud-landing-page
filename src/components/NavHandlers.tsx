@@ -13,7 +13,16 @@ export function NavHandlers({
   return (
     <ul className={!nav ? "hidden" : "absolute bg-zinc-200 w-full px-8"}>
       <li className="border-b-2 border-zinc-300 w-full">
-        <Link onClick={handleClose} to="home" smooth duration={500}>
+        <Link
+          onClick={handleClose}
+          to="home"
+          smooth
+          duration={500}
+          rel="noopener noreferrer"
+          role="link"
+          title="Home"
+          aria-label="Home"
+        >
           Home
         </Link>
       </li>
@@ -24,6 +33,10 @@ export function NavHandlers({
           smooth
           offset={-200}
           duration={500}
+          rel="noopener noreferrer"
+          role="link"
+          title="About"
+          aria-label="About"
         >
           About
         </Link>
@@ -35,6 +48,10 @@ export function NavHandlers({
           smooth
           offset={-50}
           duration={500}
+          rel="noopener noreferrer"
+          role="link"
+          title="Support"
+          aria-label="Support"
         >
           Support
         </Link>
@@ -46,6 +63,10 @@ export function NavHandlers({
           smooth
           offset={-100}
           duration={500}
+          rel="noopener noreferrer"
+          role="link"
+          title="Platforms"
+          aria-label="Platforms"
         >
           Platforms
         </Link>
@@ -57,6 +78,10 @@ export function NavHandlers({
           smooth
           offset={-50}
           duration={500}
+          rel="noopener noreferrer"
+          role="link"
+          title="Pricing"
+          aria-label="Pricing"
         >
           Pricing
         </Link>

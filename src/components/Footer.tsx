@@ -41,7 +41,7 @@ export default function Footer(): JSX.Element {
 
   const mappedData = data.map((e) => (
     <div key={uuid()}>
-      <h6 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h6>
+      <h4 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h4>
       <ul>
         <li className="py-1">{e.l1}</li>
         <li className="py-1">{e.l2}</li>
