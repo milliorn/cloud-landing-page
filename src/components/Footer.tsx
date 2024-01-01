@@ -38,29 +38,31 @@ export default function Footer(): JSX.Element {
       l5: null,
     },
   ] as const;
-
   const mappedData = data.map((e) => (
     <div key={uuid()}>
-      <h6 className="font-bold uppercase p-4 sm:pt-2">{e.heading}</h6>
+      {/* Enhancing contrast with white text on dark background */}
+      <h4 className="font-bold uppercase p-4 sm:pt-2 text-white">{e.heading}</h4>
       <ul>
-        <li className="py-1">{e.l1}</li>
-        <li className="py-1">{e.l2}</li>
-        <li className="py-1">{e.l3}</li>
-        <li className="py-1">{e.l4}</li>
-        <li className="py-1">{e.l5}</li>
+        {/* Ensuring list items are also white for better readability */}
+        <li className="py-1 text-white">{e.l1}</li>
+        <li className="py-1 text-white">{e.l2}</li>
+        <li className="py-1 text-white">{e.l3}</li>
+        <li className="py-1 text-white">{e.l4}</li>
+        {e.l5 && <li className="py-1 text-white">{e.l5}</li>}
       </ul>
     </div>
   ));
 
   return (
-    <div className="w-full mt-24 bg-slate-900 text-gray-300 py-y px-2">
+    <div className="w-full mt-24 bg-slate-900 py-y px-2">
       <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-6 border-b-2 border-gray-600 py-8">
         {mappedData}
         {FooterEmail()}
       </div>
 
-      <div className="flex flex-col max-w-[1280px] px-2 py-4 mx-auto justify-between sm:flex-row text-center text-gray-500">
-        <p className="py-4">
+      <div className="flex flex-col max-w-[1280px] px-2 py-4 mx-auto justify-between sm:flex-row text-center">
+        {/* Improved contrast with white text */}
+        <p className="py-4 text-white">
           © {new Date().getFullYear()} Lorem, ipsum. All rights reserved
         </p>
         <FooterSocialMedia />

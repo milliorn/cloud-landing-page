@@ -1,8 +1,5 @@
 import uuid from "react-uuid";
-
 import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
-
-import supportImg from "../assets/support.jpg";
 import { SupportText } from "./SupportText";
 
 /* support component */
@@ -46,8 +43,8 @@ function Support(): JSX.Element {
       <div className="w-full h-[700px] bg-gray-900/90 absolute">
         <img
           className="w-full h-full object-cover mix-blend-overlay"
-          src={supportImg}
-          alt="/"
+          src="/cloud-landing-page/support.webp"
+          alt="Support"
         />
       </div>
 
