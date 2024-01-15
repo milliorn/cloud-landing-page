@@ -11,7 +11,7 @@ export function NavbarLinks(): JSX.Element {
   return (
     <div className="flex items-center">
       <h1 className="text-3xl font-bold mr-4 sm:text-4xl">Lorem ipsum</h1>
-      <ul className="hidden md:flex">
+      <ul className="hidden md:flex cursor-pointer">
         <li>{NavbarLinksHome()}</li>
         <li>{NavbarLinksAbout()}</li>
         <li>{NavbarLinksSupport()}</li>
