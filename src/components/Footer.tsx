@@ -41,8 +41,10 @@ export default function Footer(): JSX.Element {
   const mappedData = data.map((e) => (
     <div key={uuid()}>
       {/* Enhancing contrast with white text on dark background */}
-      <h4 className="font-bold uppercase p-4 sm:pt-2 text-white">{e.heading}</h4>
-      <ul>
+      <h4 className="font-bold uppercase p-4 sm:pt-2 text-white">
+        {e.heading}
+      </h4>
+      <ul className="cursor-pointer">
         {/* Ensuring list items are also white for better readability */}
         <li className="py-1 text-white">{e.l1}</li>
         <li className="py-1 text-white">{e.l2}</li>
