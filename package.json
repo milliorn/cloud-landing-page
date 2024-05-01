@@ -5,7 +5,7 @@
   "homepage": "http://milliorn.github.io/cloud-landing-page",
   "dependencies": {
     "heroicons-react": "1.4.1",
-    "react": "18.2.0",
+    "react": "18.3.1",
     "react-dom": "18.2.0",
     "react-icons": "5.2.0",
     "react-scripts": "5.0.1",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/node": "20.12.7",
-    "@types/react": "18.2.73",
+    "@types/react": "18.3.1",
     "@types/react-dom": "18.2.23",
     "@types/react-scroll": "1.8.10",
     "autoprefixer": "10.4.19",
