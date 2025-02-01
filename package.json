@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/node": "22.10.3",
+    "@types/node": "22.13.0",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.3",
     "@types/react-scroll": "1.8.10",
