@@ -3,7 +3,7 @@ import { FooterEmail } from "./FooterEmail";
 import { FooterSocialMedia } from "./FooterSocialMedia";
 
 /* footer component */
-export default function Footer(): JSX.Element {
+export default function Footer() {
   const data = [
     {
       heading: "Solutions",

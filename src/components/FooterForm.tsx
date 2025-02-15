@@ -1,5 +1,5 @@
 /* form found in footer to email */
-export function FooterForm(): JSX.Element {
+export function FooterForm() {
   return (
     <form className="flex flex-col sm:flex-row">
       <input

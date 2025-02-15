@@ -3,7 +3,7 @@ import { mappedData } from "./Hero";
 /**
  * create card with data services in hero
  */
-export function HeroDataServices(): JSX.Element {
+export function HeroDataServices() {
   return (
     <div
       className="absolute flex flex-col sm:py-8 md:min-w-[768px] bottom-[5%]

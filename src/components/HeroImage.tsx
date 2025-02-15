@@ -1,5 +1,5 @@
 /* creates hero image */
-export function HeroImage(): JSX.Element {
+export function HeroImage() {
   return (
     <div>
       <img

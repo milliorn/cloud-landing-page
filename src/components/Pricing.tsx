@@ -24,7 +24,7 @@ export const mappeddataCheckmark = dataCheckmark.map((e) => (
 ));
 
 /* pricing component */
-export default function Pricing(): JSX.Element {
+export default function Pricing() {
   return (
     <div id="pricing" className="w-full text-white my-24">
       <div className="w-full h-[800px] bg-slate-900 absolute mix-blend-overlay" />

@@ -5,7 +5,7 @@ import { NavbarLinks } from "./NavbarLinks";
 import { NavHandlers } from "./NavHandlers";
 
 /* navbar component */
-function Navbar(): JSX.Element {
+function Navbar() {
   const [nav, setNav] = useState(false);
 
   /*event handler */

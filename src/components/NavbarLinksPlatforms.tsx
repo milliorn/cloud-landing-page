@@ -1,7 +1,7 @@
 import { Link } from "react-scroll";
 
 /* button in navbar */
-export function NavbarLinksPlatforms(): JSX.Element {
+export function NavbarLinksPlatforms() {
   return (
     <Link
       to="platforms"

@@ -9,7 +9,7 @@ export function NavHandlers({
 }: {
   nav: boolean;
   handleClose: () => void;
-}): JSX.Element {
+}) {
   return (
     <ul className={!nav ? "hidden" : "absolute bg-zinc-200 w-full px-8"}>
       <li className="border-b-2 border-zinc-300 w-full">

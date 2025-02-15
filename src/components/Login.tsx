@@ -1,7 +1,7 @@
 /**
  * navbar login buttons on right when not in hamburger view
  */
-export function Login(): JSX.Element {
+export function Login() {
   return (
     <div className="hidden md:flex pr-4">
       <button

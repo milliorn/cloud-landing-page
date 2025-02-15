@@ -19,7 +19,7 @@ export const mappedData = data.map((e) => (
 ));
 
 /* hero component */
-export default function Hero(): JSX.Element {
+export default function Hero() {
   return (
     <div
       id="home"
@@ -28,7 +28,7 @@ export default function Hero(): JSX.Element {
       <div className="grid md:grid-cols-2 max-w-[1280px] m-auto">
         <HeroHeading />
         <HeroImage />
-          <HeroDataServices />
+        <HeroDataServices />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Link } from "react-scroll";
 
 /* button in navbar */
-export function NavbarLinksSupport(): JSX.Element {
+export function NavbarLinksSupport() {
   return (
     <Link
       to="support"

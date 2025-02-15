@@ -3,7 +3,7 @@ import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 import { SupportText } from "./SupportText";
 
 /* support component */
-function Support(): JSX.Element {
+function Support() {
   const data = [
     {
       component: <Phone />,
