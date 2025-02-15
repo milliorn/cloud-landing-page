@@ -4,7 +4,7 @@ export function HeroImage() {
     <div>
       <img
         className="w-full invisible sm:visible"
-        src="/cloud-landing-page/cyber-bg.webp"
+        src="/cyber-bg.webp"
         alt="/"
       />
     </div>
