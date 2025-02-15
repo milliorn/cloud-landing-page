@@ -3,7 +3,7 @@ import { AboutMappedData } from "./AboutMappedData";
 import { AboutText } from "./AboutText";
 
 /* about component */
-function About(): JSX.Element {
+function About() {
   const data = [
     {
       pText1: "100%",

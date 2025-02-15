@@ -1,5 +1,5 @@
 /* populate element with text */
-export function SupportText(): JSX.Element {
+export function SupportText() {
   return (
     <div className="px-4 py-12">
       <h2 className="text-3xl pt-8 text-slate-300 uppercase text-center">

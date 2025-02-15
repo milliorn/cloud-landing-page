@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 /* data populated in the about section */
 export function AboutMappedData({
   mappedData,

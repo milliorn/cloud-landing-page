@@ -5,10 +5,42 @@ import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
 
 const data = [
-  { component: <CloudUpload />, p: "App Security" },
-  { component: <Database />, p: "Dashboard Design" },
-  { component: <Server />, p: "Cloud Data" },
-  { component: <PaperAirplane />, p: "API" },
+  {
+    component: (
+      <CloudUpload
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "App Security",
+  },
+  {
+    component: (
+      <Database
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "Dashboard Design",
+  },
+  {
+    component: (
+      <Server
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "Cloud Data",
+  },
+  {
+    component: (
+      <PaperAirplane
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "API",
+  },
 ] as const;
 
 export const mappedData = data.map((e) => (
@@ -19,7 +51,7 @@ export const mappedData = data.map((e) => (
 ));
 
 /* hero component */
-export default function Hero(): JSX.Element {
+export default function Hero() {
   return (
     <div
       id="home"
@@ -28,7 +60,7 @@ export default function Hero(): JSX.Element {
       <div className="grid md:grid-cols-2 max-w-[1280px] m-auto">
         <HeroHeading />
         <HeroImage />
-          <HeroDataServices />
+        <HeroDataServices />
       </div>
     </div>
   );

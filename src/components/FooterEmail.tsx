@@ -1,7 +1,7 @@
 import { FooterForm } from "./FooterForm";
 
 /* container for email form */
-export function FooterEmail(): JSX.Element {
+export function FooterEmail() {
   return (
     <div className="col-span-2 pt-8 md:pt-0 p-4">
       <p className="font-bold uppercase text-center text-white">

@@ -11,6 +11,7 @@ A landing page template built with Typescript, React, and Tailwind CSS.
 - [Contributing](#contributing)
 - [License](#license)
 - [Preview](#preview)
+- [Lighthouse Perfect Score](#lighthouse)
 
 ## About
 
@@ -59,3 +60,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## Preview
 
 ![Cloud Landing Page](public/preview.png)
+
+## Lighthouse
+
+![Cloud Landing Page](public/lighthouse.png)

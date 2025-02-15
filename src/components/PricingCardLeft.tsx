@@ -4,7 +4,7 @@ import { mappeddataCheckmark } from "./Pricing";
 /**
  * create pricing card on the top/left side (based on viewpoint)
  */
-export function PricingCardLeft(): JSX.Element {
+export function PricingCardLeft() {
   return (
     <div className="text-2xl">
       <p className="text-2xl py-8 text-slate-500">

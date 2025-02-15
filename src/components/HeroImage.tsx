@@ -1,11 +1,12 @@
-/* creates hero image */
-export function HeroImage(): JSX.Element {
+export function HeroImage() {
   return (
     <div>
       <img
         className="w-full invisible sm:visible"
-        src="/cloud-landing-page/cyber-bg.webp"
-        alt="/"
+        src="/cyber-bg.webp"
+        alt="Cyber background"
+        width={829}
+        height={600}
       />
     </div>
   );

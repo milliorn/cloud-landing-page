@@ -5,7 +5,7 @@ import { NavbarLinks } from "./NavbarLinks";
 import { NavHandlers } from "./NavHandlers";
 
 /* navbar component */
-function Navbar(): JSX.Element {
+function Navbar() {
   const [nav, setNav] = useState(false);
 
   /*event handler */
@@ -13,7 +13,11 @@ function Navbar(): JSX.Element {
   /*event handler */
   const handleClose = () => setNav(!nav);
 
-  const hamburgerMenu = !nav ? <Menu /> : <X />;
+  const hamburgerMenu = !nav ? (
+    <Menu onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+  ) : (
+    <X onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+  );
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (

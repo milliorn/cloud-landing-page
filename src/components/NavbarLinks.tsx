@@ -7,7 +7,7 @@ import { NavbarLinksSupport } from "./NavbarLinksSupport";
 /**
  * create links found in leftside of navbar when expanded
  */
-export function NavbarLinks(): JSX.Element {
+export function NavbarLinks() {
   return (
     <div className="flex items-center">
       <h1 className="text-3xl font-bold mr-4 sm:text-4xl cursor-pointer">

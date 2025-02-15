@@ -1,7 +1,7 @@
 /**
  * container for all text in pricing element
  */
-export function PricingText(): JSX.Element {
+export function PricingText() {
   return (
     <div className="text-center py-8 text-slate-300">
       <h2 className="text-3xl uppercase">Pricing</h2>

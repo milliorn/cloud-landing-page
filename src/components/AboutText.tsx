@@ -1,5 +1,5 @@
 /* text seen on top of the about section */
-export function AboutText(): JSX.Element {
+export function AboutText() {
   return (
     <div className="text-center">
       <h2 className="sm:text-5xl text-2xl font-bold mx-1">
