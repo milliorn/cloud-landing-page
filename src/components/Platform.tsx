@@ -13,7 +13,7 @@ export default function Platform() {
   const mappedData = data.map((e) => (
     <div className="flex" key={uuid()}>
       <div className="w-7 mr-4 text-green-600">
-        <Check />
+        <Check onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
       </div>
       <div>
         <h3 className="font-bold text-lg">Notifications</h3>

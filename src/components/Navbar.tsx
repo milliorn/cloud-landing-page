@@ -13,7 +13,11 @@ function Navbar() {
   /*event handler */
   const handleClose = () => setNav(!nav);
 
-  const hamburgerMenu = !nav ? <Menu /> : <X />;
+  const hamburgerMenu = !nav ? (
+    <Menu onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+  ) : (
+    <X onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+  );
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (

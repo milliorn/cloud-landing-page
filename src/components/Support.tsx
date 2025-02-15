@@ -6,17 +6,17 @@ import { SupportText } from "./SupportText";
 function Support() {
   const data = [
     {
-      component: <Phone />,
+      component: <Phone onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
       span: "Sales",
       p: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Provident quisquam, deserunt molestias neque iusto quos quo? Rerum accusamus facere totam iste doloremque, nisi eum, cupiditate architecto in quam perspiciatis minima.",
     },
     {
-      component: <SupportOutline />,
+      component: <SupportOutline onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
       span: "Technical Support",
       p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi assumenda architecto adipisci a eaque eum sequi tenetur voluptate doloremque dolor possimus, consectetur molestiae laborum neque sed corporis ad aut!",
     },
     {
-      component: <Chip />,
+      component: <Chip onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
       span: "Inquiries",
       p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius porro laudantium perspiciatis sunt, reprehenderit earum, nihil minima quas aperiam commodi cum assumenda aspernatur hic veritatis id tempora itaque, consequuntur beatae!",
     },
@@ -33,7 +33,7 @@ function Support() {
       </div>
 
       <span className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full flex items-center text-indigo-600">
-        Contact Us <ArrowSmRight />
+        Contact Us <ArrowSmRight onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
       </span>
     </div>
   ));

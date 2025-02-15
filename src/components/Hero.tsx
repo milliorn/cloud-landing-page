@@ -5,10 +5,42 @@ import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
 
 const data = [
-  { component: <CloudUpload />, p: "App Security" },
-  { component: <Database />, p: "Dashboard Design" },
-  { component: <Server />, p: "Cloud Data" },
-  { component: <PaperAirplane />, p: "API" },
+  {
+    component: (
+      <CloudUpload
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "App Security",
+  },
+  {
+    component: (
+      <Database
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "Dashboard Design",
+  },
+  {
+    component: (
+      <Server
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "Cloud Data",
+  },
+  {
+    component: (
+      <PaperAirplane
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
+    ),
+    p: "API",
+  },
 ] as const;
 
 export const mappedData = data.map((e) => (
