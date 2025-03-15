@@ -1,4 +1,5 @@
 import { Check } from "heroicons-react";
+import React from "react";
 import uuid from "react-uuid";
 
 /* platform component */
