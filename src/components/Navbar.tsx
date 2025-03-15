@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Login } from "./Login";
 import { NavbarLinks } from "./NavbarLinks";
 import { NavHandlers } from "./NavHandlers";
+import React from "react";
 
 /* navbar component */
 function Navbar() {

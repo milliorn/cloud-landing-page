@@ -1,3 +1,4 @@
+import React from "react";
 import { JSX } from "react";
 
 /* data populated in the about section */

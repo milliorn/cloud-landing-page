@@ -1,6 +1,7 @@
 import uuid from "react-uuid";
 import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
 import { SupportText } from "./SupportText";
+import React from "react";
 
 /* support component */
 function Support() {

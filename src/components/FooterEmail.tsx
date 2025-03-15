@@ -1,3 +1,4 @@
+import React from "react";
 import { FooterForm } from "./FooterForm";
 
 /* container for email form */

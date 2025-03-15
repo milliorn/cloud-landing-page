@@ -3,6 +3,7 @@ import uuid from "react-uuid";
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
+import React from "react";
 
 const data = [
   {

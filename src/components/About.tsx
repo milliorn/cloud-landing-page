@@ -1,6 +1,7 @@
 import uuid from "react-uuid";
 import { AboutMappedData } from "./AboutMappedData";
 import { AboutText } from "./AboutText";
+import React from "react";
 
 /* about component */
 function About() {

@@ -1,3 +1,5 @@
+import React from "react";
+
 /* create text for pricing per month */
 export function PricingMonth() {
   return (

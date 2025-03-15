@@ -1,3 +1,4 @@
+import React from "react";
 import { NavbarLinksAbout } from "./NavbarLinksAbout";
 import { NavbarLinksHome } from "./NavbarLinksHome";
 import { NavbarLinksPlatforms } from "./NavbarLinksPlatforms";

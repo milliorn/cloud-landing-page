@@ -1,3 +1,5 @@
+import React from "react";
+
 /* populate element with text */
 export function SupportText() {
   return (

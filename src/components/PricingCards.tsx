@@ -1,3 +1,4 @@
+import React from "react";
 import { PricingPremium } from "./PricingPremium";
 import { PricingStandard } from "./PricingStandard";
 

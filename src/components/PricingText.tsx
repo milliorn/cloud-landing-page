@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * container for all text in pricing element
  */

@@ -1,6 +1,7 @@
 import uuid from "react-uuid";
 import { FooterEmail } from "./FooterEmail";
 import { FooterSocialMedia } from "./FooterSocialMedia";
+import React from "react";
 
 /* footer component */
 export default function Footer() {

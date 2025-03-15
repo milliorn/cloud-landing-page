@@ -1,3 +1,4 @@
+import React from "react";
 import { HeroGetStarted } from "./HeroGetStarted";
 
 /* container to hold text and button for hero */

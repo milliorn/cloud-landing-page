@@ -1,4 +1,5 @@
 import { Check } from "heroicons-react";
+import React from "react";
 
 /* create checkmark icons */
 export function CheckMark({ text }: { text: string }) {

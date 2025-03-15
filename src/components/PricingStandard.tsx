@@ -1,3 +1,4 @@
+import React from "react";
 import { PricingCardLeft } from "./PricingCardLeft";
 import { PricingStandardMonth } from "./PricingStandardMonth";
 

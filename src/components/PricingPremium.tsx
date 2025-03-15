@@ -1,3 +1,4 @@
+import React from "react";
 import { PricingCardRight } from "./PricingCardRight";
 import { PricingPremiumMonth } from "./PricingPremiumMonth";
 

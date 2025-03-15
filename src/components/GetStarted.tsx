@@ -1,3 +1,5 @@
+import React from "react";
+
 /* create Get Started button */
 export function GetStarted() {
   return (

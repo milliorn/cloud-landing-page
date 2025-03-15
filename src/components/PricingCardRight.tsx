@@ -1,3 +1,4 @@
+import React from "react";
 import { GetStarted } from "./GetStarted";
 import { mappeddataCheckmark } from "./Pricing";
 

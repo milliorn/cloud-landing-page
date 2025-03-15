@@ -1,3 +1,5 @@
+import React from "react";
+
 /* form found in footer to email */
 export function FooterForm() {
   return (

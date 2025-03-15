@@ -1,3 +1,5 @@
+import React from "react";
+
 /* get started button in hero element */
 export function HeroGetStarted() {
   return (

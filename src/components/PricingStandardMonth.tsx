@@ -1,3 +1,4 @@
+import React from "react";
 import { PricingMonth } from "./PricingMonth";
 
 /* container for monthly standard price */

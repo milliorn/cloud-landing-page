@@ -2,6 +2,7 @@ import uuid from "react-uuid";
 import { CheckMark } from "./CheckMark";
 import { PricingCards } from "./PricingCards";
 import { PricingText } from "./PricingText";
+import React from "react";
 
 /* create lorem text */
 export function paraLorem({ text }: { text: string }): void {

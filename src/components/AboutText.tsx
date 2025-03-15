@@ -1,3 +1,5 @@
+import React from "react";
+
 /* text seen on top of the about section */
 export function AboutText() {
   return (
