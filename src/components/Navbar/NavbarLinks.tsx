@@ -15,11 +15,21 @@ export function NavbarLinks() {
         Lorem ipsum
       </h1>
       <ul className="hidden md:flex cursor-pointer">
-        <li>{NavbarLinksHome()}</li>
-        <li>{NavbarLinksAbout()}</li>
-        <li>{NavbarLinksSupport()}</li>
-        <li>{NavbarLinksPlatforms()}</li>
-        <li>{NavbarLinksPricing()}</li>
+        <li>
+          <NavbarLinksHome />
+        </li>
+        <li>
+          <NavbarLinksAbout />
+        </li>
+        <li>
+          <NavbarLinksSupport />
+        </li>
+        <li>
+          <NavbarLinksPlatforms />
+        </li>
+        <li>
+          <NavbarLinksPricing />
+        </li>
       </ul>
     </div>
   );

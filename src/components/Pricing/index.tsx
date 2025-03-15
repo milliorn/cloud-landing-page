@@ -1,8 +1,8 @@
 import uuid from "react-uuid";
-import { CheckMark } from "./CheckMark";
 import { PricingCards } from "./PricingCards";
 import { PricingText } from "./PricingText";
 import React from "react";
+import { CheckMark } from "../CheckMark";
 
 /* create lorem text */
 export function paraLorem({ text }: { text: string }): void {
@@ -19,7 +19,7 @@ const dataCheckmark = [
 
 export const mappeddataCheckmark = dataCheckmark.map((e) => (
   <div key={uuid()} className="text-2xl">
-    {CheckMark({ text: e })}
+    <CheckMark text={e} />
     <CheckMark text={e} />
   </div>
 ));

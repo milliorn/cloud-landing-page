@@ -1,5 +1,5 @@
 import React from "react";
-import { mappedData } from "./Hero";
+import { mappedData } from ".";
 
 /**
  * create card with data services in hero

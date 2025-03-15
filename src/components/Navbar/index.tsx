@@ -1,9 +1,9 @@
 import { Menu, X } from "heroicons-react";
 import { useState } from "react";
-import { Login } from "./Login";
+import { Login } from "../Login";
 import { NavbarLinks } from "./NavbarLinks";
-import { NavHandlers } from "./NavHandlers";
 import React from "react";
+import { NavHandlers } from "./NavHandlers";
 
 /* navbar component */
 function Navbar() {
