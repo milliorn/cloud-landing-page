@@ -7,6 +7,13 @@ import {
   FaTwitch,
 } from "react-icons/fa";
 
+// react-icons@5.4.0 is likely not ready for React 19.
+const FacebookIcon = FaFacebook as unknown as React.FC;
+const GitHubIcon = FaGithub as unknown as React.FC;
+const InstagramIcon = FaInstagram as unknown as React.FC;
+const TwitchIcon = FaTwitch as unknown as React.FC;
+const TwitterIcon = FaTwitter as unknown as React.FC;
+
 /* create social media buttons in footer */
 export function FooterSocialMedia() {
   return (
@@ -18,7 +25,7 @@ export function FooterSocialMedia() {
         aria-label="Facebook"
         className="hover:text-blue-600 transition duration-200"
       >
-        <FaFacebook />
+        <FacebookIcon />
       </a>
       <a
         href="https://instagram.com"
@@ -27,7 +34,7 @@ export function FooterSocialMedia() {
         aria-label="Instagram"
         className="hover:text-pink-500 transition duration-200"
       >
-        <FaInstagram />
+        <InstagramIcon />
       </a>
       <a
         href="https://twitter.com"
@@ -36,7 +43,7 @@ export function FooterSocialMedia() {
         aria-label="Twitter"
         className="hover:text-blue-400 transition duration-200"
       >
-        <FaTwitter />
+        <TwitterIcon />
       </a>
       <a
         href="https://twitch.tv"
@@ -45,7 +52,7 @@ export function FooterSocialMedia() {
         aria-label="Twitch"
         className="hover:text-purple-600 transition duration-200"
       >
-        <FaTwitch />
+        <TwitchIcon />
       </a>
       <a
         href="https://github.com"
@@ -54,7 +61,7 @@ export function FooterSocialMedia() {
         aria-label="GitHub"
         className="hover:text-gray-800 transition duration-200"
       >
-        <FaGithub />
+        <GitHubIcon />
       </a>
     </div>
   );
