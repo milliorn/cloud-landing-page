@@ -20,7 +20,7 @@
     "@types/react-icons": "^2.2.7",
     "@types/react-scroll": "1.8.10",
     "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
     "typescript": "^4.9.5"
