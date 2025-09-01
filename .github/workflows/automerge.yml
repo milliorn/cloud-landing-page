@@ -1,0 +1,34 @@
+name: Dependabot reviewer
+
+on: pull_request_target
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  review-dependabot-pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    steps:
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v2.4.0
+
+      - name: Approve and auto-merge minor and patch updates
+        if: ${{ steps.dependabot-metadata.outputs.update-type == 'version-update:semver-patch' || steps.dependabot-metadata.outputs.update-type == 'version-update:semver-minor' }}
+        run: |
+          gh pr review "$PR_URL" --approve -b "✅ Auto-approved: This pull request includes a **patch** or **minor** update."
+          gh pr merge "$PR_URL" --squash --auto
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deny major updates
+        if: ${{ steps.dependabot-metadata.outputs.update-type == 'version-update:semver-major' }}
+        run: |
+          gh pr review "$PR_URL" --request-changes -b "🚫 Denied: This PR includes a **major update**, which is not allowed."
+          gh pr close "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
