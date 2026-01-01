@@ -14,7 +14,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@tailwindcss/postcss": "^4.1.17",
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "19.2.3",
     "@types/react-icons": "^2.2.7",
