@@ -10,7 +10,7 @@ import Pricing from "./components/Pricing";
 /* main app entry */
 export default function App() {
   return (
-    <>
+    <main>
       <Navbar />
       <Hero />
       <About />
@@ -18,6 +18,6 @@ export default function App() {
       <Platform />
       <Pricing />
       <Footer />
-    </>
+    </main>
   );
 }
