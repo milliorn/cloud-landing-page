@@ -1,6 +1,6 @@
 # Cloud Landing Page
 
-A production-ready, fully responsive landing page template built with **React**, **TypeScript**, and **Tailwind CSS**. This project is designed to serve as a polished starting point for marketing sites, SaaS products, or any cloud-oriented service that requires a professional web presence. It achieves a perfect Lighthouse performance score out of the box and is deployable to GitHub Pages with a single command.
+A production-ready, fully responsive landing page template built with **React 19**, **TypeScript**, and **Tailwind CSS 4**. This project is designed to serve as a polished starting point for marketing sites, SaaS products, or any cloud-oriented service that requires a professional web presence. It achieves a perfect Lighthouse performance score out of the box and is deployable to GitHub Pages with a single command.
 
 ---
 
@@ -9,7 +9,6 @@ A production-ready, fully responsive landing page template built with **React**,
 - [Overview](#overview)
 - [Live Demo](#live-demo)
 - [Features](#features)
-- [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -28,29 +27,188 @@ A production-ready, fully responsive landing page template built with **React**,
 - [Resources](#resources)
 - [License](#license)
 - [Preview](#preview)
-- [Lighthouse Perfect Score](#lighthouse)
+- [Lighthouse Score](#lighthouse-score)
 
-## About
+---
 
-This project is a landing page template built with Typescript, React, and Tailwind CSS. It provides a responsive and visually appealing design for showcasing cloud-based services or products.
+## Overview
+
+This repository contains a single-page application (SPA) that renders a complete, multi-section marketing landing page. The page is structured as a vertical scroll experience composed of distinct, purpose-built sections: a fixed navigation bar, a full-screen hero, an about section with key statistics, a support/contact section, an all-in-one platform features section, a pricing tier section, and a footer with link columns, an email newsletter signup, and social media links.
+
+All sections communicate via smooth scroll anchors powered by `react-scroll`, and the entire page is fully responsive across mobile, tablet, and desktop viewports using Tailwind CSS utility classes and CSS Grid.
+
+The codebase enforces strict TypeScript compilation — every file is type-checked with no implicit `any`, strict null checks, no unused variables or parameters, and no unreachable code. This approach ensures long-term maintainability and makes onboarding new contributors straightforward, since the compiler catches entire categories of bugs at build time.
+
+---
+
+## Live Demo
+
+The project is deployed to GitHub Pages at:
+
+```text
+https://milliorn.github.io/cloud-landing-page/
+```
+
+---
+
+## Features
+
+- **Fully Responsive Layout** — adapts seamlessly to mobile, tablet, and widescreen desktop using Tailwind CSS breakpoints (`sm`, `md`, `lg`).
+- **Fixed Navigation Bar** — stays pinned to the top of the viewport on scroll with a drop shadow. Includes a hamburger menu that toggles a slide-in drawer on small screens.
+- **Smooth Scroll Navigation** — all nav links use `react-scroll` to animate the page to the corresponding section rather than performing a hard jump.
+- **Hero Section** — full-screen landing area with a heading, call-to-action, a hero image, and a row of service icon chips (App Security, Dashboard Design, Cloud Data, API).
+- **About Section** — highlights key business metrics (100% Completion, 24/7 Delivery, 100% Transactions) in bold stat cards alongside descriptive copy and a feature list.
+- **Support Section** — full-bleed background image section with floating cards for Sales, Technical Support, and General Inquiries, each with a "Contact Us" call-to-action.
+- **Platform Section** — "All-In-One Platform" feature grid showcasing four platform capabilities with checkmark icons.
+- **Pricing Section** — two-tier pricing layout (Standard and Premium) with feature checklists using a reusable `CheckMark` component.
+- **Footer** — four link columns (Solutions, Company, Legal, Support), an email newsletter subscription input, a dynamic copyright year, and social media icon links.
+- **Perfect Lighthouse Score** — optimized for Performance, Accessibility, Best Practices, and SEO.
+- **Strict TypeScript** — full strict mode compilation with zero tolerance for implicit types, unused symbols, or unreachable code.
+- **Automated Dependency Management** — Dependabot keeps npm packages and GitHub Actions up to date on a monthly schedule, with an automerge workflow that handles patch and minor updates automatically.
+
+---
+
+## Project Structure
+
+Below is the full directory tree of the repository, annotated with the role of each file and directory.
+
+```text
+cloud-landing-page/
+│
+├── .github/
+│   ├── dependabot.yml              # Dependabot configuration (monthly npm + actions updates)
+│   └── workflows/
+│       └── automerge.yml           # Auto-approves/merges patch & minor Dependabot PRs
+│
+├── build/                          # Production build output (generated, not committed)
+│
+├── public/
+│   ├── cyber-bg.webp               # Hero section background image (WebP for performance)
+│   ├── favicon.ico                 # Browser tab icon
+│   ├── index.html                  # HTML shell with <div id="root"> mount point
+│   ├── lighthouse.png              # Lighthouse score screenshot (used in README)
+│   ├── logo192.png                 # PWA icon (192x192)
+│   ├── logo512.png                 # PWA icon (512x512)
+│   ├── manifest.json               # Web app manifest for PWA metadata
+│   ├── preview.png                 # Landing page screenshot (used in README)
+│   ├── robots.txt                  # Search engine crawler instructions
+│   └── support.webp                # Support section background image (WebP)
+│
+├── src/
+│   ├── App.tsx                     # Root component; composes all page sections in order
+│   ├── index.css                   # Tailwind directives + base layer overrides
+│   ├── index.tsx                   # React DOM entry point; mounts <App> into #root
+│   ├── react-app-env.d.ts          # CRA ambient type declarations
+│   │
+│   └── components/
+│       ├── About/
+│       │   ├── index.tsx           # About section root; renders stat cards
+│       │   ├── AboutMappedData.tsx # Renders the mapped stat card grid
+│       │   └── AboutText.tsx       # Section heading and descriptive paragraph
+│       │
+│       ├── Footer/
+│       │   ├── index.tsx           # Footer root; renders link columns, copyright, social
+│       │   ├── FooterEmail.tsx     # Email newsletter subscription input
+│       │   └── FooterSocialMedia.tsx # Social media icon links row
+│       │
+│       ├── Hero/
+│       │   ├── index.tsx           # Hero section root; full-screen layout
+│       │   ├── HeroDataServices.tsx # Row of service icon chips
+│       │   ├── HeroHeading.tsx     # Main headline, subheadline, and CTA buttons
+│       │   └── HeroImage.tsx       # Hero illustration/image panel
+│       │
+│       ├── Navbar/
+│       │   ├── index.tsx           # Navbar root; manages mobile menu open/close state
+│       │   ├── NavbarLinks.tsx     # Desktop navigation link list
+│       │   ├── NavbarLinksAbout.tsx    # About section scroll link
+│       │   ├── NavbarLinksHome.tsx     # Home section scroll link
+│       │   ├── NavbarLinksPlatforms.tsx # Platforms section scroll link
+│       │   ├── NavbarLinksPricing.tsx  # Pricing section scroll link
+│       │   ├── NavbarLinksSupport.tsx  # Support section scroll link
+│       │   └── NavHandlers.tsx     # Mobile hamburger drawer with scroll links
+│       │
+│       ├── Pricing/
+│       │   ├── index.tsx           # Pricing section root; overlay + card layout
+│       │   ├── PricingCardLeft.tsx # Left card wrapper
+│       │   ├── PricingCardRight.tsx # Right card wrapper
+│       │   ├── PricingCards.tsx    # Renders both pricing card columns
+│       │   ├── PricingMonth.tsx    # Reusable monthly price display sub-component
+│       │   ├── PricingPremium.tsx  # Premium tier card content
+│       │   ├── PricingPremiumMonth.tsx # Premium monthly billing detail
+│       │   ├── PricingStandard.tsx # Standard tier card content
+│       │   ├── PricingStandardMonth.tsx # Standard monthly billing detail
+│       │   └── PricingText.tsx     # Pricing section heading and subtitle
+│       │
+│       ├── Support/
+│       │   ├── index.tsx           # Support section root; background image + cards
+│       │   └── SupportText.tsx     # Section heading and subtitle
+│       │
+│       ├── CheckMark.tsx           # Reusable checkmark icon + text row component
+│       ├── Login.tsx               # Login button in the navbar
+│       └── Platform.tsx            # "All-In-One Platform" section with feature grid
+│
+├── .gitignore                      # Git ignore rules
+├── LICENSE                         # MIT License (Copyright 2022 Scott Milliorn)
+├── package.json                    # Project metadata, dependencies, and npm scripts
+├── package-lock.json               # Exact dependency lock file
+├── postcss.config.js               # PostCSS plugin pipeline configuration
+├── README.md                       # This file
+├── tailwind.config.js              # Tailwind CSS content paths and theme configuration
+└── tsconfig.json                   # TypeScript compiler options
+```
+
+---
+
+## Prerequisites
+
+Before setting up this project, ensure you have the following tools installed on your system.
+
+### Node.js and npm
+
+This project requires **Node.js 18 or higher** and a compatible version of npm. The build toolchain (`react-scripts`) and all dependencies assume a modern Node.js runtime.
+
+To check your current versions:
+
+```bash
+node --version
+npm --version
+```
+
+If you do not have Node.js installed, download it from the [official Node.js website](https://nodejs.org/). It is recommended to use a version manager such as [nvm](https://github.com/nvm-sh/nvm) (Linux/macOS) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows) to manage multiple Node.js versions.
+
+### Git
+
+Git is required to clone the repository.
+
+```bash
+git --version
+```
+
+If Git is not installed, download it from [git-scm.com](https://git-scm.com/).
+
+### Optional: GitHub CLI
+
+The `gh` CLI is used by the automerge GitHub Actions workflow. You do not need it to run or develop the project locally, but it is useful if you plan to interact with the repository's pull requests from the command line.
+
+---
 
 ## Installation
 
 Follow these steps exactly to get the project running locally from scratch.
 
-**Step 1: Clone the repository**
+### Step 1: Clone the repository
 
 ```bash
 git clone https://github.com/milliorn/cloud-landing-page.git
 ```
 
-**Step 2: Navigate into the project directory**
+### Step 2: Navigate into the project directory
 
 ```bash
 cd cloud-landing-page
 ```
 
-**Step 3: Install all dependencies**
+### Step 3: Install all dependencies
 
 ```bash
 npm install
@@ -72,7 +230,7 @@ npm start
 
 This launches the Create React App development server. Open your browser and navigate to:
 
-```
+```text
 http://localhost:3000
 ```
 
@@ -162,7 +320,7 @@ The application follows a **flat, section-based component hierarchy**. `App.tsx`
 
 ### Composition Model
 
-```
+```text
 App
 ├── Navbar
 │   ├── NavbarLinks (desktop nav links)
@@ -208,7 +366,7 @@ App
 
 ### Key Design Patterns
 
-**Data-driven rendering with `as const`**
+#### Data-driven rendering with `as const`
 
 Several components define their content as `const` arrays marked with `as const`, then map over them to produce JSX. This keeps content and presentation clearly separated and makes it easy to update copy without touching component logic. For example, the Hero section defines its service chips as:
 
@@ -221,15 +379,15 @@ const data = [
 ] as const;
 ```
 
-**Stable list keys with `react-uuid`**
+#### Stable list keys with `react-uuid`
 
 React requires a stable, unique `key` prop on every element produced by a `map`. This project uses `react-uuid` to generate a UUID for each mapped element, avoiding the anti-pattern of using the array index as a key.
 
-**Section anchors for smooth scroll**
+#### Section anchors for smooth scroll
 
 Each top-level section component renders a root `<div>` with an `id` attribute (`id="home"`, `id="about"`, `id="support"`, `id="platforms"`, `id="pricing"`). The `react-scroll` `Link` component in the navbar targets these IDs, animating the scroll position when a nav link is clicked.
 
-**Reusable `CheckMark` component**
+#### Reusable `CheckMark` component
 
 The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row consisting of a checkmark icon and a text string. It is used throughout the Pricing section to render feature lists, demonstrating the principle of extracting even small UI patterns into reusable primitives.
 
@@ -275,18 +433,18 @@ The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row 
 }
 ```
 
-**Notable settings explained:**
+Notable settings explained:
 
 | Option | Behavior |
-|---|---|
+| --- | --- |
 | `strict: true` | Enables the full suite of strict type-checking options as a single flag |
 | `noImplicitAny` | Variables must have an explicit type; TypeScript will not silently infer `any` |
 | `strictNullChecks` | `null` and `undefined` are not assignable to other types without explicit handling |
 | `noUnusedLocals` | The compiler errors on declared-but-unused local variables |
 | `noUnusedParameters` | The compiler errors on declared-but-unused function parameters |
 | `allowUnreachableCode: false` | The compiler errors on code that can never be reached |
-| `isolatedModules` | Every file must be a module (has an `import` or `export`); required by Babel's per-file transpilation |
-| `noEmit: true` | TypeScript performs type checking only; Webpack/Babel handles the actual transpilation |
+| `isolatedModules` | Every file must be a module; required by Babel's per-file transpilation |
+| `noEmit: true` | TypeScript performs type checking only; Webpack/Babel handles transpilation |
 | `target: "es5"` | Output targets ES5 for maximum browser compatibility |
 | `sourceMap: true` | Generates `.map` files for debugging in browser DevTools |
 
@@ -360,7 +518,7 @@ This means every `<button>` element in the application inherits the indigo brand
 Tailwind's mobile-first breakpoints are used throughout:
 
 | Prefix | Minimum Width |
-|---|---|
+| --- | --- |
 | _(none)_ | 0px (mobile) |
 | `sm:` | 640px |
 | `md:` | 768px |
@@ -389,7 +547,7 @@ This single command:
 
 ### Homepage URL
 
-The `homepage` field in `package.json` must match the GitHub Pages URL. The `react-scripts` build process uses this value to set the correct `public URL` for all asset paths (images, JS chunks, CSS) in the production build. If you fork this repository and deploy to your own GitHub Pages account, update this URL accordingly.
+The `homepage` field in `package.json` must match the GitHub Pages URL. The `react-scripts` build process uses this value to set the correct public URL for all asset paths (images, JS chunks, CSS) in the production build. If you fork this repository and deploy to your own GitHub Pages account, update this URL accordingly.
 
 ### Custom Domain
 
@@ -425,20 +583,16 @@ updates:
         update-types: ["version-update:semver-major"]
 ```
 
-**Behavior:**
-
-- Dependabot scans both npm packages and GitHub Actions dependencies monthly.
-- Major version bumps for npm packages are **ignored** — these require manual review due to the potential for breaking changes.
-- Patch and minor updates are automatically submitted as pull requests.
+Dependabot scans both npm packages and GitHub Actions dependencies monthly. Major version bumps for npm packages are ignored — these require manual review due to the potential for breaking changes. Patch and minor updates are automatically submitted as pull requests.
 
 ### Automerge Workflow
 
 `.github/workflows/automerge.yml` runs on every pull request opened by `dependabot[bot]`. It uses the `dependabot/fetch-metadata` action to determine the semver update type and takes one of three actions:
 
 | Update Type | Action |
-|---|---|
+| --- | --- |
 | `semver-patch` or `semver-minor` | Auto-approves the PR and enables squash merge |
-| `semver-major` | Creates a `dependabot-major-auto-closed` label, applies it, closes the PR, and posts a comment explaining why |
+| `semver-major` | Creates a `dependabot-major-auto-closed` label, closes the PR, and posts a comment explaining why |
 | null / empty update type | Creates a `dependabot-update-type-null` label, closes the PR, and posts a comment |
 
 This keeps the `main` branch current with low-risk dependency updates without requiring manual intervention for every patch release.
@@ -449,13 +603,13 @@ This keeps the `main` branch current with low-risk dependency updates without re
 
 Browser targets are defined in `package.json` under the `"browserslist"` key.
 
-**Production:**
+Production:
 
 - Browsers with greater than 0.2% global usage share
 - Excludes browsers classified as "dead" (no official support or updates for 24+ months)
 - Excludes Opera Mini
 
-**Development:**
+Development:
 
 - Last 1 version of Chrome
 - Last 1 version of Firefox
@@ -540,6 +694,10 @@ See the [LICENSE](LICENSE) file for the full text.
 ## Preview
 
 ![Cloud Landing Page Preview](public/preview.png)
+
+---
+
+## Lighthouse Score
 
 This project achieves a perfect score across all four Lighthouse audit categories: Performance, Accessibility, Best Practices, and SEO.
 
