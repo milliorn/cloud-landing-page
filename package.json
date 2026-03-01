@@ -2,6 +2,7 @@
   "name": "cloud-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://milliorn.github.io/cloud-landing-page",
   "dependencies": {
     "heroicons-react": "1.4.1",
     "react": "^19.1.0",
@@ -20,6 +21,7 @@
     "@types/react-icons": "^2.2.7",
     "@types/react-scroll": "1.8.10",
     "autoprefixer": "^10.4.27",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "postcss-loader": "^8.2.1",
