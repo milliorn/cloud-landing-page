@@ -1,4 +1,4 @@
-import { Check } from "heroicons-react";
+import { HiCheck } from "react-icons/hi";
 import React from "react";
 import uuid from "react-uuid";
 
@@ -14,7 +14,7 @@ export default function Platform() {
   const mappedData = data.map((e) => (
     <div className="flex" key={uuid()}>
       <div className="w-7 mr-4 text-green-600">
-        <Check onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+        <HiCheck />
       </div>
       <div>
         <h3 className="font-bold text-lg">Notifications</h3>

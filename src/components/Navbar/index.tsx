@@ -1,4 +1,4 @@
-import { Menu, X } from "heroicons-react";
+import { HiMenu, HiX } from "react-icons/hi";
 import { useState } from "react";
 import { Login } from "../Login";
 import { NavbarLinks } from "./NavbarLinks";
@@ -14,11 +14,7 @@ function Navbar() {
   /*event handler */
   const handleClose = () => setNav(!nav);
 
-  const hamburgerMenu = !nav ? (
-    <Menu onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
-  ) : (
-    <X onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
-  );
+  const hamburgerMenu = !nav ? <HiMenu /> : <HiX />;
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (

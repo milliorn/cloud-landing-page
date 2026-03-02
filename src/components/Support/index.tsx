@@ -1,5 +1,5 @@
 import uuid from "react-uuid";
-import { ArrowSmRight, Chip, Phone, SupportOutline } from "heroicons-react";
+import { HiArrowSmRight, HiChip, HiPhone, HiOutlineSupport } from "react-icons/hi";
 import { SupportText } from "./SupportText";
 import React from "react";
 
@@ -7,17 +7,17 @@ import React from "react";
 function Support() {
   const data = [
     {
-      component: <Phone onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
+      component: <HiPhone />,
       span: "Sales",
       p: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Provident quisquam, deserunt molestias neque iusto quos quo? Rerum accusamus facere totam iste doloremque, nisi eum, cupiditate architecto in quam perspiciatis minima.",
     },
     {
-      component: <SupportOutline onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
+      component: <HiOutlineSupport />,
       span: "Technical Support",
       p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime commodi assumenda architecto adipisci a eaque eum sequi tenetur voluptate doloremque dolor possimus, consectetur molestiae laborum neque sed corporis ad aut!",
     },
     {
-      component: <Chip onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />,
+      component: <HiChip />,
       span: "Inquiries",
       p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius porro laudantium perspiciatis sunt, reprehenderit earum, nihil minima quas aperiam commodi cum assumenda aspernatur hic veritatis id tempora itaque, consequuntur beatae!",
     },
@@ -34,7 +34,7 @@ function Support() {
       </div>
 
       <span className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full flex items-center text-indigo-600">
-        Contact Us <ArrowSmRight onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+        Contact Us <HiArrowSmRight />
       </span>
     </div>
   ));
