@@ -1,4 +1,4 @@
-import { CloudUpload, Database, PaperAirplane, Server } from "heroicons-react";
+import { HiCloudUpload, HiDatabase, HiPaperAirplane, HiServer } from "react-icons/hi";
 import uuid from "react-uuid";
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
@@ -8,37 +8,25 @@ import React from "react";
 const data = [
   {
     component: (
-      <CloudUpload
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      />
+      <HiCloudUpload />
     ),
     p: "App Security",
   },
   {
     component: (
-      <Database
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      />
+      <HiDatabase />
     ),
     p: "Dashboard Design",
   },
   {
     component: (
-      <Server
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      />
+      <HiServer />
     ),
     p: "Cloud Data",
   },
   {
     component: (
-      <PaperAirplane
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      />
+      <HiPaperAirplane />
     ),
     p: "API",
   },

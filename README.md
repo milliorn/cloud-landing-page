@@ -17,6 +17,7 @@ A production-ready, fully responsive landing page template built with **React 19
 - [Component Architecture](#component-architecture)
 - [Configuration](#configuration)
   - [TypeScript](#typescript-configuration)
+  - [Type Declarations](#type-declarations)
   - [Tailwind CSS](#tailwind-css-configuration)
   - [PostCSS](#postcss-configuration)
 - [Styling Conventions](#styling-conventions)
@@ -98,7 +99,7 @@ cloud-landing-page/
 │   ├── App.tsx                     # Root component; composes all page sections in order
 │   ├── index.css                   # Tailwind directives + base layer overrides
 │   ├── index.tsx                   # React DOM entry point; mounts <App> into #root
-│   ├── react-app-env.d.ts          # CRA ambient type declarations
+│   ├── react-app-env.d.ts          # Ambient type declarations for CSS, Heroicons, and CRA types
 │   │
 │   └── components/
 │       ├── About/
@@ -447,6 +448,26 @@ Notable settings explained:
 | `noEmit: true` | TypeScript performs type checking only; Webpack/Babel handles transpilation |
 | `target: "es5"` | Output targets ES5 for maximum browser compatibility |
 | `sourceMap: true` | Generates `.map` files for debugging in browser DevTools |
+
+### Type Declarations
+
+`src/react-app-env.d.ts` provides ambient type declarations for modules that do not ship with TypeScript definitions. This file enables TypeScript to understand third-party libraries and non-JavaScript module imports such as CSS files.
+
+```typescript
+/// <reference types="react-scripts" />
+
+declare module "@heroicons/react/outline";
+declare module "@heroicons/react/solid";
+declare module "*.css";
+```
+
+The file includes:
+
+- A triple-slash reference directive that loads type definitions from `react-scripts`, enabling Create React App's extended types.
+- Module declarations for Heroicons packages, which provide SVG icons but do not ship with TypeScript types.
+- A wildcard module declaration for all `.css` files, allowing TypeScript to accept side-effect CSS imports such as `import "./index.css"` without throwing "Cannot find module" errors.
+
+Without the `declare module "*.css";` declaration, importing CSS files in TypeScript would fail compilation. This declaration tells TypeScript that any `.css` file import is valid and should be treated as a module with an implicit `any` type. Webpack's CSS loader handles the actual processing at build time.
 
 ### Tailwind CSS Configuration
 
