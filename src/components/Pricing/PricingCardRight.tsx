@@ -12,9 +12,7 @@ export function PricingCardRight() {
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste,
         adipisci? Sapiente.?
       </p>
-      {mappeddataCheckmark.map((_: object, idx: number) => {
-        return mappeddataCheckmark[mappeddataCheckmark.length - 1 - idx];
-      })}
+      {[...mappeddataCheckmark].reverse()}
       <GetStarted />
     </div>
   );
