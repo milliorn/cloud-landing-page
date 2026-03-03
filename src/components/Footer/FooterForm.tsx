@@ -9,6 +9,9 @@ export function FooterForm() {
       method="POST"
       autoComplete="on"
     >
+      <label htmlFor="email" className="sr-only">
+        Email address
+      </label>
       <input
         autoComplete="email"
         className="w-full p-2 mr-4 rounded-md mb-4 bg-white text-gray-900"
