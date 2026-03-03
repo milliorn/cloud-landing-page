@@ -22,8 +22,6 @@ export function NavHandlers({
             smooth
             offset={offset}
             duration={500}
-            rel="noopener noreferrer"
-            role="link"
             title={label}
             aria-label={label}
           >
