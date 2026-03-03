@@ -15,7 +15,6 @@ const dataCheckmark = [
 export const mappeddataCheckmark = dataCheckmark.map((e) => (
   <div key={uuid()} className="text-2xl">
     <CheckMark text={e} />
-    <CheckMark text={e} />
   </div>
 ));
 
