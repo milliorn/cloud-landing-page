@@ -1,4 +1,9 @@
-import { HiCloudUpload, HiDatabase, HiPaperAirplane, HiServer } from "react-icons/hi";
+import {
+  HiCloudUpload,
+  HiDatabase,
+  HiPaperAirplane,
+  HiServer,
+} from "react-icons/hi";
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
@@ -6,27 +11,19 @@ import React from "react";
 
 const data = [
   {
-    component: (
-      <HiCloudUpload />
-    ),
+    component: <HiCloudUpload />,
     p: "App Security",
   },
   {
-    component: (
-      <HiDatabase />
-    ),
+    component: <HiDatabase />,
     p: "Dashboard Design",
   },
   {
-    component: (
-      <HiServer />
-    ),
+    component: <HiServer />,
     p: "Cloud Data",
   },
   {
-    component: (
-      <HiPaperAirplane />
-    ),
+    component: <HiPaperAirplane />,
     p: "API",
   },
 ] as const;

@@ -436,18 +436,18 @@ The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row 
 
 Notable settings explained:
 
-| Option | Behavior |
-| --- | --- |
-| `strict: true` | Enables the full suite of strict type-checking options as a single flag |
-| `noImplicitAny` | Variables must have an explicit type; TypeScript will not silently infer `any` |
-| `strictNullChecks` | `null` and `undefined` are not assignable to other types without explicit handling |
-| `noUnusedLocals` | The compiler errors on declared-but-unused local variables |
-| `noUnusedParameters` | The compiler errors on declared-but-unused function parameters |
-| `allowUnreachableCode: false` | The compiler errors on code that can never be reached |
-| `isolatedModules` | Every file must be a module; required by Babel's per-file transpilation |
-| `noEmit: true` | TypeScript performs type checking only; Webpack/Babel handles transpilation |
-| `target: "es5"` | Output targets ES5 for maximum browser compatibility |
-| `sourceMap: true` | Generates `.map` files for debugging in browser DevTools |
+| Option                        | Behavior                                                                           |
+| ----------------------------- | ---------------------------------------------------------------------------------- |
+| `strict: true`                | Enables the full suite of strict type-checking options as a single flag            |
+| `noImplicitAny`               | Variables must have an explicit type; TypeScript will not silently infer `any`     |
+| `strictNullChecks`            | `null` and `undefined` are not assignable to other types without explicit handling |
+| `noUnusedLocals`              | The compiler errors on declared-but-unused local variables                         |
+| `noUnusedParameters`          | The compiler errors on declared-but-unused function parameters                     |
+| `allowUnreachableCode: false` | The compiler errors on code that can never be reached                              |
+| `isolatedModules`             | Every file must be a module; required by Babel's per-file transpilation            |
+| `noEmit: true`                | TypeScript performs type checking only; Webpack/Babel handles transpilation        |
+| `target: "es5"`               | Output targets ES5 for maximum browser compatibility                               |
+| `sourceMap: true`             | Generates `.map` files for debugging in browser DevTools                           |
 
 ### Type Declarations
 
@@ -494,11 +494,11 @@ To extend the theme (add custom colors, fonts, spacing, etc.), add values inside
 ```js
 module.exports = {
   plugins: {
-    'postcss-import': {},
+    "postcss-import": {},
     tailwindcss: {},
     autoprefixer: {},
-  }
-}
+  },
+};
 ```
 
 The plugins run in the order listed:
@@ -538,13 +538,13 @@ This means every `<button>` element in the application inherits the indigo brand
 
 Tailwind's mobile-first breakpoints are used throughout:
 
-| Prefix | Minimum Width |
-| --- | --- |
-| _(none)_ | 0px (mobile) |
-| `sm:` | 640px |
-| `md:` | 768px |
-| `lg:` | 1024px |
-| `xl:` | 1280px |
+| Prefix   | Minimum Width |
+| -------- | ------------- |
+| _(none)_ | 0px (mobile)  |
+| `sm:`    | 640px         |
+| `md:`    | 768px         |
+| `lg:`    | 1024px        |
+| `xl:`    | 1280px        |
 
 Components use class patterns such as `grid md:grid-cols-2` (single column on mobile, two columns on tablet and above) and `hidden md:flex` (hidden on mobile, flex on tablet and above).
 
@@ -610,11 +610,11 @@ Dependabot scans both npm packages and GitHub Actions dependencies monthly. Majo
 
 `.github/workflows/automerge.yml` runs on every pull request opened by `dependabot[bot]`. It uses the `dependabot/fetch-metadata` action to determine the semver update type and takes one of three actions:
 
-| Update Type | Action |
-| --- | --- |
-| `semver-patch` or `semver-minor` | Auto-approves the PR and enables squash merge |
-| `semver-major` | Creates a `dependabot-major-auto-closed` label, closes the PR, and posts a comment explaining why |
-| null / empty update type | Creates a `dependabot-update-type-null` label, closes the PR, and posts a comment |
+| Update Type                      | Action                                                                                            |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `semver-patch` or `semver-minor` | Auto-approves the PR and enables squash merge                                                     |
+| `semver-major`                   | Creates a `dependabot-major-auto-closed` label, closes the PR, and posts a comment explaining why |
+| null / empty update type         | Creates a `dependabot-update-type-null` label, closes the PR, and posts a comment                 |
 
 This keeps the `main` branch current with low-risk dependency updates without requiring manual intervention for every patch release.
 

@@ -39,9 +39,7 @@ const data = [
 
 const mappedData = data.map((e) => (
   <div key={e.heading}>
-    <h4 className="font-bold uppercase p-4 sm:pt-2 text-white">
-      {e.heading}
-    </h4>
+    <h4 className="font-bold uppercase p-4 sm:pt-2 text-white">{e.heading}</h4>
     <ul className="cursor-pointer">
       <li className="py-1 text-white">{e.l1}</li>
       <li className="py-1 text-white">{e.l2}</li>

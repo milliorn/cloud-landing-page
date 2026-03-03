@@ -1,4 +1,9 @@
-import { HiArrowSmRight, HiChip, HiPhone, HiOutlineSupport } from "react-icons/hi";
+import {
+  HiArrowSmRight,
+  HiChip,
+  HiPhone,
+  HiOutlineSupport,
+} from "react-icons/hi";
 import { SupportText } from "./SupportText";
 import React from "react";
 
