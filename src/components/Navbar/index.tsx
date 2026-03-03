@@ -18,7 +18,7 @@ function Navbar() {
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (
-    <div className="w-screen sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
+    <div className="w-full sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
       <div className="px-2 flex justify-between items-center w-full h-full">
         <NavbarLinks />
         <Login />
