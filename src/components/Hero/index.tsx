@@ -1,5 +1,4 @@
 import { HiCloudUpload, HiDatabase, HiPaperAirplane, HiServer } from "react-icons/hi";
-import uuid from "react-uuid";
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
@@ -33,7 +32,7 @@ const data = [
 ] as const;
 
 export const mappedData = data.map((e) => (
-  <div className="flex px-4 py-2 text-gray-900" key={uuid()}>
+  <div className="flex px-4 py-2 text-gray-900" key={e.p}>
     <div className="h-6 text-indigo-600">{e.component}</div>
     <p className="text-gray-900">{e.p}</p>
   </div>
