@@ -4,11 +4,6 @@ import { PricingText } from "./PricingText";
 import React from "react";
 import { CheckMark } from "../CheckMark";
 
-/* create lorem text */
-export function paraLorem({ text }: { text: string }): void {
-  <p className="text-2xl py-8 text-slate-500">{text}</p>;
-}
-
 const dataCheckmark = [
   "Lorem ipsum dolor sit, amet consectetur adipisicing.",
   "Lorem ipsum dolor sit, amet consectetur.",
