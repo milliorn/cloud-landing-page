@@ -11,7 +11,7 @@ const data = [
   {
     component: <HiPhone />,
     span: "Sales",
-    p: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Provident quisquam, deserunt molestias neque iusto quos quo? Rerum accusamus facere totam iste doloremque, nisi eum, cupiditate architecto in quam perspiciatis minima.",
+    p: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident quisquam, deserunt molestias neque iusto quos quo? Rerum accusamus facere totam iste doloremque, nisi eum, cupiditate architecto in quam perspiciatis minima.",
   },
   {
     component: <HiOutlineSupport />,
@@ -32,7 +32,7 @@ const columns = data.map((e) => (
         {e.component}
       </div>
       <span className="font-bold text-2xl my-6">{e.span}</span>
-      <p className="text-gray-600 text-xl  mb-12">{e.p}</p>
+      <p className="text-gray-600 text-xl mb-12">{e.p}</p>
     </div>
 
     <span className="bg-slate-100 pl-8 py-4 absolute bottom-0 w-full flex items-center text-indigo-600">

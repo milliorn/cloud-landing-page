@@ -10,7 +10,7 @@ export function PricingCardRight() {
     <div>
       <p className="text-2xl py-8 text-slate-500">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste,
-        adipisci? Sapiente.?
+        adipisci? Sapiente?
       </p>
       {[...mappeddataCheckmark].reverse()}
       <GetStarted />
