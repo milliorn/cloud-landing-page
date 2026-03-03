@@ -1,5 +1,5 @@
-import { HiCheck } from "react-icons/hi";
 import React from "react";
+import { HiCheck } from "react-icons/hi";
 
 /* create checkmark icons */
 export function CheckMark({ text }: { text: string }) {

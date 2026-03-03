@@ -1,13 +1,7 @@
-import uuid from "react-uuid";
-import { PricingCards } from "./PricingCards";
-import { PricingText } from "./PricingText";
 import React from "react";
 import { CheckMark } from "../CheckMark";
-
-/* create lorem text */
-export function paraLorem({ text }: { text: string }): void {
-  <p className="text-2xl py-8 text-slate-500">{text}</p>;
-}
+import { PricingCards } from "./PricingCards";
+import { PricingText } from "./PricingText";
 
 const dataCheckmark = [
   "Lorem ipsum dolor sit, amet consectetur adipisicing.",
@@ -18,8 +12,7 @@ const dataCheckmark = [
 ] as const;
 
 export const mappeddataCheckmark = dataCheckmark.map((e) => (
-  <div key={uuid()} className="text-2xl">
-    <CheckMark text={e} />
+  <div key={e} className="text-2xl">
     <CheckMark text={e} />
   </div>
 ));

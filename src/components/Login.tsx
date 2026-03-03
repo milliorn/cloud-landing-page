@@ -5,10 +5,10 @@ import React from "react";
  */
 export function Login() {
   return (
-    <div className="hidden md:flex pr-4">
+    <div className="hidden md:flex px-4">
       <button
         type="button"
-        className="border-none bg-transparent text-black mr-4"
+        className="bg-transparent text-black mr-4 border-none"
       >
         Sign In
       </button>

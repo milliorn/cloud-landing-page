@@ -1,28 +1,39 @@
-import { HiCheck } from "react-icons/hi";
 import React from "react";
-import uuid from "react-uuid";
+import { HiCheck } from "react-icons/hi";
+
+const data = [
+  {
+    title: "Notifications",
+    p: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate consequuntur, soluta assumenda laboriosam iusto eius? Hic voluptates in laudantium, cum magni quis, veritatis quasi iusto ipsa, facilis nisi! Fuga, asperiores.",
+  },
+  {
+    title: "Analytics",
+    p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate animi odio ipsam architecto, sequi nostrum recusandae quibusdam qui, assumenda temporibus quod! Laudantium modi id sed, corrupti hic ex error voluptatibus!",
+  },
+  {
+    title: "Integrations",
+    p: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi corporis architecto tenetur quam molestias, incidunt enim sapiente voluptatem odio reiciendis, dicta itaque dignissimos. Repudiandae magnam voluptas fugit quae numquam suscipit.",
+  },
+  {
+    title: "Security",
+    p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel, perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
+  },
+] as const;
+
+const mappedData = data.map((e) => (
+  <div className="flex" key={e.title}>
+    <div className="w-7 mr-4 text-green-600">
+      <HiCheck />
+    </div>
+    <div>
+      <h3 className="font-bold text-lg">{e.title}</h3>
+      <p className="text-lg pt-2 pb-4">{e.p}</p>
+    </div>
+  </div>
+));
 
 /* platform component */
 export default function Platform() {
-  const data = [
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate consequuntur, soluta assumenda laboriosam iusto eius? Hic voluptates in laudantium, cum magni quis, veritatis quasi iusto ipsa, facilis nisi! Fuga, asperiores.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate animi odio ipsam architecto, sequi nostrum recusandae quibusdam qui, assumenda temporibus quod! Laudantium modi id sed, corrupti hic ex error voluptatibus!",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Eligendi corporis architecto tenetur quam molestias, incidunt enim sapiente voluptatem odio reiciendis, dicta itaque dignissimos. Repudiandae magnam voluptas fugit quae numquam suscipit.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel,perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
-  ] as const;
-
-  const mappedData = data.map((e) => (
-    <div className="flex" key={uuid()}>
-      <div className="w-7 mr-4 text-green-600">
-        <HiCheck />
-      </div>
-      <div>
-        <h3 className="font-bold text-lg">Notifications</h3>
-        <p className="text-lg pt-2 pb-4">{e}</p>
-      </div>
-    </div>
-  ));
-
   return (
     <div id="platforms" className="w-full my-32">
       <div className="max-w-[1280px] mx-auto px-2">

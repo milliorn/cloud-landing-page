@@ -1,39 +1,35 @@
-import { HiCloudUpload, HiDatabase, HiPaperAirplane, HiServer } from "react-icons/hi";
-import uuid from "react-uuid";
+import React from "react";
+import {
+  HiCloudUpload,
+  HiDatabase,
+  HiPaperAirplane,
+  HiServer,
+} from "react-icons/hi";
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
-import React from "react";
 
 const data = [
   {
-    component: (
-      <HiCloudUpload />
-    ),
+    component: <HiCloudUpload />,
     p: "App Security",
   },
   {
-    component: (
-      <HiDatabase />
-    ),
+    component: <HiDatabase />,
     p: "Dashboard Design",
   },
   {
-    component: (
-      <HiServer />
-    ),
+    component: <HiServer />,
     p: "Cloud Data",
   },
   {
-    component: (
-      <HiPaperAirplane />
-    ),
+    component: <HiPaperAirplane />,
     p: "API",
   },
 ] as const;
 
 export const mappedData = data.map((e) => (
-  <div className="flex px-4 py-2 text-gray-900" key={uuid()}>
+  <div className="flex px-4 py-2 text-gray-900" key={e.p}>
     <div className="h-6 text-indigo-600">{e.component}</div>
     <p className="text-gray-900">{e.p}</p>
   </div>

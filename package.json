@@ -4,27 +4,26 @@
   "private": true,
   "homepage": "https://milliorn.github.io/cloud-landing-page",
   "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.2.4",
-    "react-icons": "^5.4.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-icons": "5.4.0",
     "react-scripts": "5.0.1",
-    "react-scroll": "1.9.3",
-    "react-uuid": "2.0.0"
+    "react-scroll": "1.9.3"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@tailwindcss/postcss": "^4.2.1",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@tailwindcss/postcss": "4.2.1",
     "@types/node": "24.11.0",
-    "@types/react": "^19.2.14",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/react-scroll": "1.8.10",
-    "ajv": "^8.0.0",
-    "autoprefixer": "^10.4.27",
-    "gh-pages": "^6.3.0",
-    "postcss": "^8.5.6",
-    "postcss-import": "^16.1.1",
-    "postcss-loader": "^8.2.1",
-    "typescript": "^5.0.0"
+    "ajv": "8.18.0",
+    "autoprefixer": "10.4.27",
+    "gh-pages": "6.3.0",
+    "postcss": "8.5.6",
+    "postcss-import": "16.1.1",
+    "postcss-loader": "8.2.1",
+    "typescript": "5.9.3"
   },
   "scripts": {
     "build": "react-scripts build",
@@ -33,7 +32,6 @@
     "predeploy": "npm run build",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:tsc": "tsc -p tsconfig.json -w",
     "tsc:build": "tsc -p .",
     "tsc:watch": "tsc -p . -w"
   },
