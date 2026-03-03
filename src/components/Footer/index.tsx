@@ -60,7 +60,7 @@ export default function Footer() {
     <div className="w-full mt-24 bg-slate-900 py-8 px-2">
       <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-6 border-b-2 border-gray-600 py-8">
         {mappedData}
-        {FooterEmail()}
+        <FooterEmail />
       </div>
 
       <div className="flex flex-col max-w-[1280px] px-2 py-4 mx-auto justify-between sm:flex-row text-center">
