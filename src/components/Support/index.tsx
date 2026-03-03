@@ -1,11 +1,11 @@
+import React from "react";
 import {
   HiArrowSmRight,
   HiChip,
-  HiPhone,
   HiOutlineSupport,
+  HiPhone,
 } from "react-icons/hi";
 import { SupportText } from "./SupportText";
-import React from "react";
 
 const data = [
   {

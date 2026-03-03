@@ -1,3 +1,4 @@
+import React from "react";
 import {
   HiCloudUpload,
   HiDatabase,
@@ -7,7 +8,6 @@ import {
 import { HeroDataServices } from "./HeroDataServices";
 import { HeroHeading } from "./HeroHeading";
 import { HeroImage } from "./HeroImage";
-import React from "react";
 
 const data = [
   {

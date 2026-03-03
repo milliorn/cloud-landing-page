@@ -1,7 +1,7 @@
-import { PricingCards } from "./PricingCards";
-import { PricingText } from "./PricingText";
 import React from "react";
 import { CheckMark } from "../CheckMark";
+import { PricingCards } from "./PricingCards";
+import { PricingText } from "./PricingText";
 
 const dataCheckmark = [
   "Lorem ipsum dolor sit, amet consectetur adipisicing.",

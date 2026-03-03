@@ -1,6 +1,6 @@
+import React from "react";
 import { FooterEmail } from "./FooterEmail";
 import { FooterSocialMedia } from "./FooterSocialMedia";
-import React from "react";
 
 const data = [
   {

@@ -1,5 +1,5 @@
-import { AboutMappedData } from "./AboutMappedData";
 import React from "react";
+import { AboutMappedData } from "./AboutMappedData";
 import { AboutText } from "./AboutText";
 
 const data = [

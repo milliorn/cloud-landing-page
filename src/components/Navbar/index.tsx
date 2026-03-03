@@ -1,9 +1,8 @@
+import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { useState } from "react";
 import { Login } from "../Login";
-import { NavbarLinks } from "./NavbarLinks";
-import React from "react";
 import { NavHandlers } from "./NavHandlers";
+import { NavbarLinks } from "./NavbarLinks";
 
 /* navbar component */
 function Navbar() {

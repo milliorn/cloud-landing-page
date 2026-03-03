@@ -1,4 +1,5 @@
 import React from "react";
+import { IconType } from "react-icons";
 import {
   FaFacebook,
   FaGithub,
@@ -6,7 +7,6 @@ import {
   FaTwitter,
   FaTwitch,
 } from "react-icons/fa";
-import { IconType } from "react-icons";
 import { Icon } from "../Icon";
 
 const links: { href: string; label: string; icon: IconType; hover: string }[] =
