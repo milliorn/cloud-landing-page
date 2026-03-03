@@ -6,57 +6,59 @@ import {
   FaTwitter,
   FaTwitch,
 } from "react-icons/fa";
+import { IconType } from "react-icons";
 import { Icon } from "../Icon";
+
+const links: { href: string; label: string; icon: IconType; hover: string }[] =
+  [
+    {
+      href: "https://facebook.com",
+      label: "Facebook",
+      icon: FaFacebook,
+      hover: "hover:text-blue-600",
+    },
+    {
+      href: "https://instagram.com",
+      label: "Instagram",
+      icon: FaInstagram,
+      hover: "hover:text-pink-500",
+    },
+    {
+      href: "https://twitter.com",
+      label: "Twitter",
+      icon: FaTwitter,
+      hover: "hover:text-blue-400",
+    },
+    {
+      href: "https://twitch.tv",
+      label: "Twitch",
+      icon: FaTwitch,
+      hover: "hover:text-purple-600",
+    },
+    {
+      href: "https://github.com",
+      label: "GitHub",
+      icon: FaGithub,
+      hover: "hover:text-gray-800",
+    },
+  ];
 
 /* create social media buttons in footer */
 export function FooterSocialMedia() {
   return (
     <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
-      <a
-        href="https://facebook.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-        className="hover:text-blue-600 transition duration-200"
-      >
-        <Icon icon={FaFacebook} />
-      </a>
-      <a
-        href="https://instagram.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-        className="hover:text-pink-500 transition duration-200"
-      >
-        <Icon icon={FaInstagram} />
-      </a>
-      <a
-        href="https://twitter.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Twitter"
-        className="hover:text-blue-400 transition duration-200"
-      >
-        <Icon icon={FaTwitter} />
-      </a>
-      <a
-        href="https://twitch.tv"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Twitch"
-        className="hover:text-purple-600 transition duration-200"
-      >
-        <Icon icon={FaTwitch} />
-      </a>
-      <a
-        href="https://github.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-        className="hover:text-gray-800 transition duration-200"
-      >
-        <Icon icon={FaGithub} />
-      </a>
+      {links.map(({ href, label, icon, hover }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          className={`${hover} transition duration-200`}
+        >
+          <Icon icon={icon} />
+        </a>
+      ))}
     </div>
   );
 }
