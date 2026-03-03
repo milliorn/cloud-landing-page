@@ -4,7 +4,7 @@ export function HeroImage() {
   return (
     <div>
       <img
-        className="w-full invisible sm:visible"
+        className="w-full hidden sm:block"
         src={`${process.env.PUBLIC_URL}/cyber-bg.webp`}
         alt="Cyber background"
         width={829}
