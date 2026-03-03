@@ -9,22 +9,23 @@ import { NavHandlers } from "./NavHandlers";
 function Navbar() {
   const [nav, setNav] = useState(false);
 
-  /*event handler */
   const handleClick = () => setNav(!nav);
-  /*event handler */
   const handleClose = () => setNav(false);
-
-  const hamburgerMenu = !nav ? <HiMenu /> : <HiX />;
-  const hamburger = <div className="w-5">{hamburgerMenu}</div>;
 
   return (
     <div className="w-full sm:h-20 z-10 bg-zinc-200 fixed drop-shadow-lg">
       <div className="px-2 flex justify-between items-center w-full h-full">
         <NavbarLinks />
         <Login />
-        <div className="md:hidden mr-4" onClick={handleClick}>
-          {hamburger}
-        </div>
+        <button
+          className="md:hidden mr-4"
+          onClick={handleClick}
+          type="button"
+          aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={nav}
+        >
+          <div className="w-5">{nav ? <HiX /> : <HiMenu />}</div>
+        </button>
       </div>
       <NavHandlers nav={nav} handleClose={handleClose} />
     </div>
@@ -32,3 +33,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
