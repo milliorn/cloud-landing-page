@@ -8,7 +8,7 @@ export function Login() {
     <div className="hidden md:flex pr-4">
       <button
         type="button"
-        className="bg-transparent text-black mr-4"
+        className="bg-transparent text-black mr-4 border-none"
       >
         Sign In
       </button>
