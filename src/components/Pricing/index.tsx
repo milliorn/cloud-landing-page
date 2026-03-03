@@ -1,4 +1,3 @@
-import uuid from "react-uuid";
 import { PricingCards } from "./PricingCards";
 import { PricingText } from "./PricingText";
 import React from "react";
@@ -13,7 +12,7 @@ const dataCheckmark = [
 ] as const;
 
 export const mappeddataCheckmark = dataCheckmark.map((e) => (
-  <div key={uuid()} className="text-2xl">
+  <div key={e} className="text-2xl">
     <CheckMark text={e} />
   </div>
 ));
