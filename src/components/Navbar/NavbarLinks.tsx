@@ -23,6 +23,7 @@ export function NavbarLinks() {
           <li key={to} className="px-3">
             <Link
               to={to}
+              href={`#${to}`}
               smooth
               offset={offset}
               duration={500}

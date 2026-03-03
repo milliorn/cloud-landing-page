@@ -19,6 +19,7 @@ export function NavHandlers({
           <Link
             onClick={handleClose}
             to={to}
+            href={`#${to}`}
             smooth
             offset={offset}
             duration={500}
