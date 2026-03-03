@@ -1,5 +1,4 @@
-import React from "react";
-import { JSX } from "react";
+import React, { JSX } from "react";
 
 /* data populated in the about section */
 export function AboutMappedData({
