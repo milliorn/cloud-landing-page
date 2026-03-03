@@ -99,7 +99,7 @@ cloud-landing-page/
 │   ├── App.tsx                     # Root component; composes all page sections in order
 │   ├── index.css                   # Tailwind directives + base layer overrides
 │   ├── index.tsx                   # React DOM entry point; mounts <App> into #root
-│   ├── react-app-env.d.ts          # Ambient type declarations for CSS, Heroicons, and CRA types
+│   ├── react-app-env.d.ts          # Ambient type declarations for CSS modules and CRA types
 │   │
 │   └── components/
 │       ├── About/
@@ -120,24 +120,15 @@ cloud-landing-page/
 │       │
 │       ├── Navbar/
 │       │   ├── index.tsx           # Navbar root; manages mobile menu open/close state
-│       │   ├── NavbarLinks.tsx     # Desktop navigation link list
-│       │   ├── NavbarLinksAbout.tsx    # About section scroll link
-│       │   ├── NavbarLinksHome.tsx     # Home section scroll link
-│       │   ├── NavbarLinksPlatforms.tsx # Platforms section scroll link
-│       │   ├── NavbarLinksPricing.tsx  # Pricing section scroll link
-│       │   ├── NavbarLinksSupport.tsx  # Support section scroll link
-│       │   └── NavHandlers.tsx     # Mobile hamburger drawer with scroll links
+│       │   ├── NavbarLinks.tsx     # Desktop nav link list; exports navLinks data array
+│       │   └── NavHandlers.tsx     # Mobile hamburger drawer; consumes navLinks
 │       │
 │       ├── Pricing/
 │       │   ├── index.tsx           # Pricing section root; overlay + card layout
-│       │   ├── PricingCardLeft.tsx # Left card wrapper
-│       │   ├── PricingCardRight.tsx # Right card wrapper
-│       │   ├── PricingCards.tsx    # Renders both pricing card columns
+│       │   ├── PricingCardLeft.tsx # Standard tier card content
+│       │   ├── PricingCardRight.tsx # Premium tier card content
+│       │   ├── PricingCards.tsx    # PricingTier component; renders both pricing card columns
 │       │   ├── PricingMonth.tsx    # Reusable monthly price display sub-component
-│       │   ├── PricingPremium.tsx  # Premium tier card content
-│       │   ├── PricingPremiumMonth.tsx # Premium monthly billing detail
-│       │   ├── PricingStandard.tsx # Standard tier card content
-│       │   ├── PricingStandardMonth.tsx # Standard monthly billing detail
 │       │   └── PricingText.tsx     # Pricing section heading and subtitle
 │       │
 │       ├── Support/
@@ -145,7 +136,9 @@ cloud-landing-page/
 │       │   └── SupportText.tsx     # Section heading and subtitle
 │       │
 │       ├── CheckMark.tsx           # Reusable checkmark icon + text row component
-│       ├── Login.tsx               # Login button in the navbar
+│       ├── GetStarted.tsx          # Reusable "Get Started" button component
+│       ├── Icon.tsx                # Reusable icon wrapper for react-icons components
+│       ├── Login.tsx               # Sign In and Sign Up buttons in the navbar
 │       └── Platform.tsx            # "All-In-One Platform" section with feature grid
 │
 ├── .gitignore                      # Git ignore rules
@@ -324,14 +317,9 @@ The application follows a **flat, section-based component hierarchy**. `App.tsx`
 ```text
 App
 ├── Navbar
-│   ├── NavbarLinks (desktop nav links)
-│   │   ├── NavbarLinksHome
-│   │   ├── NavbarLinksAbout
-│   │   ├── NavbarLinksPlatforms
-│   │   ├── NavbarLinksPricing
-│   │   └── NavbarLinksSupport
-│   ├── Login (login button)
-│   └── NavHandlers (mobile drawer)
+│   ├── NavbarLinks (desktop nav links; maps navLinks data array)
+│   ├── Login (Sign In and Sign Up buttons)
+│   └── NavHandlers (mobile drawer; consumes navLinks)
 │
 ├── Hero
 │   ├── HeroHeading (headline + CTA)
@@ -351,13 +339,9 @@ App
 │
 ├── Pricing
 │   ├── PricingText (section heading)
-│   └── PricingCards
-│       ├── PricingCardLeft
-│       │   ├── PricingStandard
-│       │   └── PricingStandardMonth
-│       └── PricingCardRight
-│           ├── PricingPremium
-│           └── PricingPremiumMonth
+│   └── PricingCards (PricingTier; label + price + children)
+│       ├── PricingCardLeft (Standard tier content)
+│       └── PricingCardRight (Premium tier content)
 │
 └── Footer
     ├── (mapped link columns: Solutions, Company, Legal, Support)
@@ -380,13 +364,13 @@ const data = [
 ] as const;
 ```
 
-#### Stable list keys with `react-uuid`
+#### Stable list keys with data fields
 
-React requires a stable, unique `key` prop on every element produced by a `map`. This project uses `react-uuid` to generate a UUID for each mapped element, avoiding the anti-pattern of using the array index as a key.
+React requires a stable, unique `key` prop on every element produced by a `map`. This project uses meaningful, stable data fields as keys (for example, `key={e.title}`, `key={e.p}`, `key={to}`) rather than array indices or generated UUIDs. Because the data arrays are defined as `as const` and never reordered at runtime, these values are guaranteed to be stable across renders.
 
 #### Section anchors for smooth scroll
 
-Each top-level section component renders a root `<div>` with an `id` attribute (`id="home"`, `id="about"`, `id="support"`, `id="platforms"`, `id="pricing"`). The `react-scroll` `Link` component in the navbar targets these IDs, animating the scroll position when a nav link is clicked.
+Each top-level section component renders a root `<div>` with an `id` attribute (`id="home"`, `id="about"`, `id="support"`, `id="platforms"`, `id="pricing"`). The `react-scroll` `Link` component in the navbar targets these IDs, animating the scroll position when a nav link is clicked. Each `Link` also carries an `href={#id}` attribute so that search engine crawlers can follow the links without executing JavaScript.
 
 #### Reusable `CheckMark` component
 
@@ -404,30 +388,31 @@ The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row 
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowUnreachableCode": false,
-    "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "checkJs": true,
+    "noImplicitReturns": true,
     "sourceMap": true,
-    "noEmit": true,
-    "skipLibCheck": true,
+    "allowUnreachableCode": false,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2020",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
+    "allowUnusedLabels": false,
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "include": ["src"],
   "exclude": ["node_modules"]
@@ -436,18 +421,22 @@ The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row 
 
 Notable settings explained:
 
-| Option                        | Behavior                                                                           |
-| ----------------------------- | ---------------------------------------------------------------------------------- |
-| `strict: true`                | Enables the full suite of strict type-checking options as a single flag            |
-| `noImplicitAny`               | Variables must have an explicit type; TypeScript will not silently infer `any`     |
-| `strictNullChecks`            | `null` and `undefined` are not assignable to other types without explicit handling |
-| `noUnusedLocals`              | The compiler errors on declared-but-unused local variables                         |
-| `noUnusedParameters`          | The compiler errors on declared-but-unused function parameters                     |
-| `allowUnreachableCode: false` | The compiler errors on code that can never be reached                              |
-| `isolatedModules`             | Every file must be a module; required by Babel's per-file transpilation            |
-| `noEmit: true`                | TypeScript performs type checking only; Webpack/Babel handles transpilation        |
-| `target: "es5"`               | Output targets ES5 for maximum browser compatibility                               |
-| `sourceMap: true`             | Generates `.map` files for debugging in browser DevTools                           |
+| Option                            | Behavior                                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| `strict: true`                    | Enables the full suite of strict type-checking options as a single flag                    |
+| `noUnusedLocals`                  | The compiler errors on declared-but-unused local variables                                 |
+| `noUnusedParameters`              | The compiler errors on declared-but-unused function parameters                             |
+| `allowUnreachableCode: false`     | The compiler errors on code that can never be reached                                      |
+| `allowUnusedLabels: false`        | The compiler errors on unused statement labels                                             |
+| `exactOptionalPropertyTypes`      | Optional properties must not be assigned `undefined` explicitly; they must be omitted      |
+| `noUncheckedIndexedAccess`        | Index signature access returns `T \| undefined`, forcing null checks on array/object reads |
+| `noPropertyAccessFromIndexSignature` | Properties on index-signed types must be accessed with bracket notation              |
+| `noImplicitOverride`              | Class members overriding a base class member must carry the `override` keyword             |
+| `isolatedModules`                 | Every file must be a module; required by Babel's per-file transpilation                    |
+| `noEmit: true`                    | TypeScript performs type checking only; Webpack/Babel handles transpilation                |
+| `target: "ES2020"`                | Output targets ES2020 for modern browser compatibility                                     |
+| `moduleResolution: "bundler"`     | Uses bundler-aware module resolution, aligned with Webpack/Vite conventions                |
+| `sourceMap: true`                 | Generates `.map` files for debugging in browser DevTools                                   |
 
 ### Type Declarations
 
@@ -455,16 +444,12 @@ Notable settings explained:
 
 ```typescript
 /// <reference types="react-scripts" />
-
-declare module "@heroicons/react/outline";
-declare module "@heroicons/react/solid";
 declare module "*.css";
 ```
 
 The file includes:
 
 - A triple-slash reference directive that loads type definitions from `react-scripts`, enabling Create React App's extended types.
-- Module declarations for Heroicons packages, which provide SVG icons but do not ship with TypeScript types.
 - A wildcard module declaration for all `.css` files, allowing TypeScript to accept side-effect CSS imports such as `import "./index.css"` without throwing "Cannot find module" errors.
 
 Without the `declare module "*.css";` declaration, importing CSS files in TypeScript would fail compilation. This declaration tells TypeScript that any `.css` file import is valid and should be treated as a module with an implicit `any` type. Webpack's CSS loader handles the actual processing at build time.
@@ -672,7 +657,7 @@ Contributions are welcome. To contribute:
 - TypeScript must compile cleanly with no errors (`npm run tsc:build`).
 - Follow the existing component structure: one directory per section, one `index.tsx` as the section root, sub-components in the same directory.
 - Use Tailwind utility classes for all styling. Do not introduce new CSS files unless strictly necessary.
-- Do not use array indices as React `key` props. Use `react-uuid` consistent with the rest of the codebase.
+- Do not use array indices as React `key` props. Use stable, meaningful data fields as keys (e.g. `key={item.label}`).
 
 ---
 
@@ -690,7 +675,6 @@ The following documentation and references cover every technology used in this p
 - [react-scroll on npm](https://www.npmjs.com/package/react-scroll) — Smooth scroll API and options
 - [Heroicons](https://github.com/tailwindlabs/heroicons) — SVG icon library by Tailwind Labs
 - [React Icons](https://react-icons.github.io/react-icons/) — Icon packs for React
-- [react-uuid on GitHub](https://github.com/RickBr0wn/react-uuid) — UUID generation for React keys
 - [gh-pages on npm](https://www.npmjs.com/package/gh-pages) — GitHub Pages deployment utility
 - [Dependabot Configuration](https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates) — Dependabot `dependabot.yml` reference
 
