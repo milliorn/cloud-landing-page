@@ -12,11 +12,11 @@ const data = [
   },
   {
     title: "Integrations",
-    p: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.Eligendi corporis architecto tenetur quam molestias, incidunt enim sapiente voluptatem odio reiciendis, dicta itaque dignissimos. Repudiandae magnam voluptas fugit quae numquam suscipit.",
+    p: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi corporis architecto tenetur quam molestias, incidunt enim sapiente voluptatem odio reiciendis, dicta itaque dignissimos. Repudiandae magnam voluptas fugit quae numquam suscipit.",
   },
   {
     title: "Security",
-    p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel,perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
+    p: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Adquae, accusamus, deserunt facilis ipsa qui quisquam facere vel, perspiciatis fugiat odit! Facilis, illo quod dolorem magnam assumenda voluptatibus mollitia rerum.",
   },
 ] as const;
 
