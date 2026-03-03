@@ -6,18 +6,18 @@ import {
   FaTwitter,
   FaTwitch,
 } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-// react-icons@5.4.0 is likely not ready for React 19.
-const FacebookIcon = FaFacebook as unknown as React.FC;
-const GitHubIcon = FaGithub as unknown as React.FC;
-const InstagramIcon = FaInstagram as unknown as React.FC;
-const TwitchIcon = FaTwitch as unknown as React.FC;
-const TwitterIcon = FaTwitter as unknown as React.FC;
+// react-icons@5.4.0 type compatibility workaround for React 19
+function Icon({ icon: I }: { icon: IconType }) {
+  const Component = I as unknown as React.FC;
+  return <Component />;
+}
 
 /* create social media buttons in footer */
 export function FooterSocialMedia() {
   return (
-    <div className="flex justify-between sm:w-[300px] pt-4 text-2xl cursor-pointer">
+    <div className="flex justify-between sm:w-[300px] pt-4 text-2xl">
       <a
         href="https://facebook.com"
         target="_blank"
@@ -25,7 +25,7 @@ export function FooterSocialMedia() {
         aria-label="Facebook"
         className="hover:text-blue-600 transition duration-200"
       >
-        <FacebookIcon />
+        <Icon icon={FaFacebook} />
       </a>
       <a
         href="https://instagram.com"
@@ -34,7 +34,7 @@ export function FooterSocialMedia() {
         aria-label="Instagram"
         className="hover:text-pink-500 transition duration-200"
       >
-        <InstagramIcon />
+        <Icon icon={FaInstagram} />
       </a>
       <a
         href="https://twitter.com"
@@ -43,7 +43,7 @@ export function FooterSocialMedia() {
         aria-label="Twitter"
         className="hover:text-blue-400 transition duration-200"
       >
-        <TwitterIcon />
+        <Icon icon={FaTwitter} />
       </a>
       <a
         href="https://twitch.tv"
@@ -52,7 +52,7 @@ export function FooterSocialMedia() {
         aria-label="Twitch"
         className="hover:text-purple-600 transition duration-200"
       >
-        <TwitchIcon />
+        <Icon icon={FaTwitch} />
       </a>
       <a
         href="https://github.com"
@@ -61,7 +61,7 @@ export function FooterSocialMedia() {
         aria-label="GitHub"
         className="hover:text-gray-800 transition duration-200"
       >
-        <GitHubIcon />
+        <Icon icon={FaGithub} />
       </a>
     </div>
   );
