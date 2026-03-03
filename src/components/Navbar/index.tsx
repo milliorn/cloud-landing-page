@@ -12,7 +12,7 @@ function Navbar() {
   /*event handler */
   const handleClick = () => setNav(!nav);
   /*event handler */
-  const handleClose = () => setNav(!nav);
+  const handleClose = () => setNav(false);
 
   const hamburgerMenu = !nav ? <HiMenu /> : <HiX />;
   const hamburger = <div className="w-5">{hamburgerMenu}</div>;
