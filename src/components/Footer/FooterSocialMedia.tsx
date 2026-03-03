@@ -6,13 +6,7 @@ import {
   FaTwitter,
   FaTwitch,
 } from "react-icons/fa";
-import { IconType } from "react-icons";
-
-// react-icons@5.4.0 type compatibility workaround for React 19
-function Icon({ icon: I }: { icon: IconType }) {
-  const Component = I as unknown as React.FC;
-  return <Component />;
-}
+import { Icon } from "../Icon";
 
 /* create social media buttons in footer */
 export function FooterSocialMedia() {
