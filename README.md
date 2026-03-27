@@ -421,22 +421,22 @@ The `CheckMark` component (`src/components/CheckMark.tsx`) renders a single row 
 
 Notable settings explained:
 
-| Option                            | Behavior                                                                                   |
-| --------------------------------- | ------------------------------------------------------------------------------------------ |
-| `strict: true`                    | Enables the full suite of strict type-checking options as a single flag                    |
-| `noUnusedLocals`                  | The compiler errors on declared-but-unused local variables                                 |
-| `noUnusedParameters`              | The compiler errors on declared-but-unused function parameters                             |
-| `allowUnreachableCode: false`     | The compiler errors on code that can never be reached                                      |
-| `allowUnusedLabels: false`        | The compiler errors on unused statement labels                                             |
-| `exactOptionalPropertyTypes`      | Optional properties must not be assigned `undefined` explicitly; they must be omitted      |
-| `noUncheckedIndexedAccess`        | Index signature access returns `T \| undefined`, forcing null checks on array/object reads |
-| `noPropertyAccessFromIndexSignature` | Properties on index-signed types must be accessed with bracket notation              |
-| `noImplicitOverride`              | Class members overriding a base class member must carry the `override` keyword             |
-| `isolatedModules`                 | Every file must be a module; required by Babel's per-file transpilation                    |
-| `noEmit: true`                    | TypeScript performs type checking only; Webpack/Babel handles transpilation                |
-| `target: "ES2020"`                | Output targets ES2020 for modern browser compatibility                                     |
-| `moduleResolution: "bundler"`     | Uses bundler-aware module resolution, aligned with Webpack/Vite conventions                |
-| `sourceMap: true`                 | Generates `.map` files for debugging in browser DevTools                                   |
+| Option                               | Behavior                                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `strict: true`                       | Enables the full suite of strict type-checking options as a single flag                    |
+| `noUnusedLocals`                     | The compiler errors on declared-but-unused local variables                                 |
+| `noUnusedParameters`                 | The compiler errors on declared-but-unused function parameters                             |
+| `allowUnreachableCode: false`        | The compiler errors on code that can never be reached                                      |
+| `allowUnusedLabels: false`           | The compiler errors on unused statement labels                                             |
+| `exactOptionalPropertyTypes`         | Optional properties must not be assigned `undefined` explicitly; they must be omitted      |
+| `noUncheckedIndexedAccess`           | Index signature access returns `T \| undefined`, forcing null checks on array/object reads |
+| `noPropertyAccessFromIndexSignature` | Properties on index-signed types must be accessed with bracket notation                    |
+| `noImplicitOverride`                 | Class members overriding a base class member must carry the `override` keyword             |
+| `isolatedModules`                    | Every file must be a module; required by Babel's per-file transpilation                    |
+| `noEmit: true`                       | TypeScript performs type checking only; Webpack/Babel handles transpilation                |
+| `target: "ES2020"`                   | Output targets ES2020 for modern browser compatibility                                     |
+| `moduleResolution: "bundler"`        | Uses bundler-aware module resolution, aligned with Webpack/Vite conventions                |
+| `sourceMap: true`                    | Generates `.map` files for debugging in browser DevTools                                   |
 
 ### Type Declarations
 
