@@ -28,6 +28,7 @@ env:
 jobs:
   review-dependabot-pr:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     # Skip entirely if this PR wasn't opened by Dependabot.
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     env:
