@@ -14,10 +14,6 @@ on:
       - "package.json"
       - "package-lock.json"
 
-concurrency:
-  group: dependency-review-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 # https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
 permissions:
   contents: read
@@ -29,21 +25,25 @@ env:
   # Avoids a breaking change when GitHub drops Node.js 20 support for actions.
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       # Check out the repository so the action can read the manifest files.
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 1
 
       # Scan changed dependency files and fail if any known vulnerability
       # at low severity or higher is introduced by this PR.
-      # retry-on-snapshot-warnings retries if GitHub's dependency graph hasn't
-      # indexed the commit yet, ensuring a complete scan before passing.
-      # Commonly enabled options, see https://github.com/actions/dependency-review-action#configuration-options for all available options.
       - name: Dependency Review
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@v4.9.0
         with:
-          comment-summary-in-pr: always
+          comment-summary-in-pr: on-failure
           fail-on-severity: low
