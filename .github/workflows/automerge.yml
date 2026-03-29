@@ -8,14 +8,14 @@ on:
     types: [opened, synchronize, reopened]
     branches: ["main"]
 
-# One run per PR at a time. If Dependabot pushes a new commit, cancel the
-# stale run and re-evaluate against the latest state.
+# One run per PR at a time. We let the current run finish so an in-progress
+# squash merge isn't interrupted mid-flight.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 # Minimum permissions needed:
-# - pull-requests: approve, comment, label, and close PRs
+# - pull-requests: approve and comment on PRs
 # - contents: enable auto-merge (writes to the merge queue)
 permissions:
   pull-requests: write
@@ -40,57 +40,31 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v3.0.0
 
-      # 1. GitHub Actions: always allow regardless of semver level.
-      #    --auto queues the merge so all required branch protection checks must
-      #    pass first (e.g. dependency-review) before the merge goes through.
-      - name: Allow — GitHub Actions update
-        if: ${{ steps.metadata.outputs.package-ecosystem == 'github-actions' }}
+      # Decide once: allow github-actions (any semver) or patch/minor updates;
+      # deny everything else. Major updates are filtered upstream by dependabot.yml,
+      # so deny is a safety net for anything unexpected that slips through.
+      - name: Decide
+        id: decision
         run: |
-          REVIEW_STATE=$(gh pr view "$PR_URL" --json reviewDecision -q '.reviewDecision')
-          if [ "$REVIEW_STATE" != "APPROVED" ]; then
-            gh pr review "$PR_URL" --approve -b "Auto-approved: **${{ steps.metadata.outputs.update-type }}** GitHub Actions update."
-          fi
-          gh pr merge "$PR_URL" --squash --auto
-
-      # 2. Patch or minor: allow. Excludes github-actions since step 1 handles those.
-      - name: Allow — patch or minor update
-        if: >-
-          ${{
-            steps.metadata.outputs.package-ecosystem != 'github-actions' &&
-            (steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
-             steps.metadata.outputs.update-type == 'version-update:semver-minor')
-          }}
-        run: |
-          REVIEW_STATE=$(gh pr view "$PR_URL" --json reviewDecision -q '.reviewDecision')
-          if [ "$REVIEW_STATE" != "APPROVED" ]; then
-            gh pr review "$PR_URL" --approve -b "Auto-approved: **${{ steps.metadata.outputs.update-type }}** update."
-          fi
-          gh pr merge "$PR_URL" --squash --auto
-
-      # 3. Everything else: deny. Reports exactly what was received so it's easy
-      #    to diagnose why the PR was closed.
-      - name: Deny — not in allow-list
-        if: >-
-          ${{
-            steps.metadata.outputs.package-ecosystem != 'github-actions' &&
-            steps.metadata.outputs.update-type != 'version-update:semver-patch' &&
-            steps.metadata.outputs.update-type != 'version-update:semver-minor'
-          }}
-        run: |
-          HAS_LABEL=$(gh pr view "$PR_URL" --json labels -q '[.labels[].name] | contains(["dependabot-auto-closed"])')
-          if [ "$HAS_LABEL" = "true" ]; then
-            exit 0
-          fi
-
-          gh label create "dependabot-auto-closed" \
-            --color "d73a4a" \
-            --description "Dependabot PR automatically closed (not in allow-list)" \
-            2>/dev/null || true
-
-          gh pr edit "$PR_URL" --add-label "dependabot-auto-closed" || true
-
-          if gh pr close "$PR_URL"; then
-            gh pr comment "$PR_URL" --body "Auto-closed: ecosystem \`${{ steps.metadata.outputs.package-ecosystem }}\` / update-type \`${{ steps.metadata.outputs.update-type }}\` is not in the allow-list."
+          ecosystem="${{ steps.metadata.outputs.package-ecosystem }}"
+          update_type="${{ steps.metadata.outputs.update-type }}"
+          if [[ "$ecosystem" == "github-actions" ]] || \
+             [[ "$update_type" == "version-update:semver-patch" ]] || \
+             [[ "$update_type" == "version-update:semver-minor" ]]; then
+            echo "action=allow" >> "$GITHUB_OUTPUT"
           else
-            gh pr comment "$PR_URL" --body "Tried to auto-close this PR (ecosystem \`${{ steps.metadata.outputs.package-ecosystem }}\` / update-type \`${{ steps.metadata.outputs.update-type }}\`) but \`gh pr close\` failed. Please close it manually."
+            echo "action=deny" >> "$GITHUB_OUTPUT"
           fi
+
+      # --auto queues the merge so all required branch protection checks must
+      # pass first (e.g. dependency-review) before the merge goes through.
+      - name: Allow — approve and merge
+        if: steps.decision.outputs.action == 'allow'
+        run: |
+          gh pr review "$PR_URL" --approve -b "Auto-approved: **${{ steps.metadata.outputs.update-type }}** ${{ steps.metadata.outputs.package-ecosystem }} update."
+          gh pr merge "$PR_URL" --squash --auto
+
+      - name: Deny — unexpected update
+        if: steps.decision.outputs.action == 'deny'
+        run: |
+          gh pr close "$PR_URL" --comment "Auto-closed: ecosystem \`${{ steps.metadata.outputs.package-ecosystem }}\` / update-type \`${{ steps.metadata.outputs.update-type }}\` did not match any allow-list rule. Check dependabot.yml if this is unexpected."
