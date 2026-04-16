@@ -1,0 +1,45 @@
+components:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/components/**
+
+styles:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/**/*.css
+          - tailwind.config.js
+          - postcss.config.js
+
+typescript:
+  - changed-files:
+      - any-glob-to-any-file:
+          - src/**/*.ts
+          - src/**/*.tsx
+          - tsconfig.json
+
+assets:
+  - changed-files:
+      - any-glob-to-any-file:
+          - public/**
+
+ci/cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/**
+
+github_actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - package.json
+          - package-lock.json
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
+          - public/robots.txt
