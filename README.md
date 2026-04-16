@@ -23,6 +23,7 @@ A production-ready, fully responsive landing page template built with **React 19
 - [Styling Conventions](#styling-conventions)
 - [Deployment](#deployment)
 - [CI/CD and Dependency Management](#cicd-and-dependency-management)
+- [PR Labeling](#pr-labeling)
 - [Browser Support](#browser-support)
 - [Contributing](#contributing)
 - [Resources](#resources)
@@ -693,6 +694,23 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 See the [LICENSE](LICENSE) file for the full text.
+
+---
+
+## PR Labeling
+
+Pull requests are automatically labeled by [actions/labeler](https://github.com/actions/labeler) using `.github/labeler.yml`. Labels are applied based on which files changed.
+
+| Label            | Triggered by                            |
+| ---------------- | --------------------------------------- |
+| `components`     | `src/components/**`                     |
+| `styles`         | `src/**/*.css`, Tailwind/PostCSS config |
+| `typescript`     | `src/**/*.ts/tsx`, `tsconfig.json`      |
+| `assets`         | `public/**`                             |
+| `ci/cd`          | `.github/workflows/**`                  |
+| `github_actions` | `.github/**`                            |
+| `dependencies`   | `package.json`, `package-lock.json`     |
+| `documentation`  | `**/*.md`, `public/robots.txt`          |
 
 ---
 
