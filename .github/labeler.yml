@@ -41,5 +41,5 @@ dependencies:
 documentation:
   - changed-files:
       - any-glob-to-any-file:
-          - '**/*.md'
+          - "**/*.md"
           - public/robots.txt
