@@ -17,7 +17,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-scroll": "^1.8.10",
-    "ajv": "^8.18.0",
+    "ajv": "^8.20.0",
     "autoprefixer": "^10.5.0",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.13",
