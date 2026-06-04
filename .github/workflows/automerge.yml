@@ -40,7 +40,7 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v3.1.0
 
-      # Decide once: allow github-actions (any semver) or patch/minor updates;
+      # Decide once: allow github_actions (any semver) or patch/minor updates;
       # deny everything else. Major updates are filtered upstream by dependabot.yml,
       # so deny is a safety net for anything unexpected that slips through.
       - name: Decide
@@ -48,7 +48,7 @@ jobs:
         run: |
           ecosystem="${{ steps.metadata.outputs.package-ecosystem }}"
           update_type="${{ steps.metadata.outputs.update-type }}"
-          if [[ "$ecosystem" == "github-actions" ]] || \
+          if [[ "$ecosystem" == "github_actions" ]] || \
              [[ "$update_type" == "version-update:semver-patch" ]] || \
              [[ "$update_type" == "version-update:semver-minor" ]]; then
             echo "action=allow" >> "$GITHUB_OUTPUT"
