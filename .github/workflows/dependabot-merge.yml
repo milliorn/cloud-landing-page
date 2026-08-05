@@ -54,13 +54,19 @@ jobs:
         run: |
           info=$(gh pr view "$NUMBER" --json state,author,mergeable,mergeStateStatus,reviews)
           state=$(jq -r '.state' <<<"$info")
+          # `gh pr view --json author` (GraphQL) reports the bot's login as
+          # "app/dependabot" — not "dependabot[bot]", which is what the REST
+          # API (and automerge.yml's github.event.pull_request.user.login)
+          # uses. is_bot + a login match on the unprefixed name avoids caring
+          # which format we get.
           author=$(jq -r '.author.login' <<<"$info")
+          is_bot=$(jq -r '.author.is_bot' <<<"$info")
           mergeable=$(jq -r '.mergeable' <<<"$info")
           merge_state=$(jq -r '.mergeStateStatus' <<<"$info")
           approvals=$(jq '[.reviews[] | select(.state == "APPROVED")] | length' <<<"$info")
 
-          if [[ "$state" != "OPEN" || "$author" != "dependabot[bot]" ]]; then
-            echo "PR #$NUMBER is not an open Dependabot PR (author=$author state=$state) — skipping."
+          if [[ "$state" != "OPEN" || "$is_bot" != "true" || "$author" != *dependabot* ]]; then
+            echo "PR #$NUMBER is not an open Dependabot PR (author=$author is_bot=$is_bot state=$state) — skipping."
           elif [[ "$approvals" -eq 0 ]]; then
             echo "PR #$NUMBER has no approval from the reviewer workflow — skipping."
           elif [[ "$mergeable" != "MERGEABLE" || "$merge_state" != "CLEAN" ]]; then
