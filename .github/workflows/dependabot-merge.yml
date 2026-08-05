@@ -27,23 +27,47 @@ jobs:
       GH_TOKEN: ${{ secrets.DEPENDABOT_REBASE_PAT }}
 
     steps:
-      - name: Find the PR for this commit
+      # Read the PR number straight off the triggering event instead of
+      # looking it up via the commits/{sha}/pulls API — that endpoint lags
+      # behind the push by a few seconds and can return nothing yet, which
+      # would make this step silently skip a PR that's actually ready.
+      - name: Find the PR for this run
         id: pr
+        env:
+          WORKFLOW_RUN_JSON: ${{ toJson(github.event.workflow_run) }}
         run: |
-          pr_json=$(gh api "repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha }}/pulls" --jq '.[0] // empty')
-          echo "url=$(jq -r '.html_url // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
-          echo "author=$(jq -r '.user.login // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
-          echo "state=$(jq -r '.state // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
+          number=$(jq -r '.pull_requests[0].number // empty' <<<"$WORKFLOW_RUN_JSON")
+          echo "number=$number" >> "$GITHUB_OUTPUT"
 
       # Only merge PRs the "Dependabot reviewer" workflow already approved —
-      # that approval is our signal the allow-list decision was "allow".
-      - name: Merge if Dependabot-authored and already approved
-        if: steps.pr.outputs.author == 'dependabot[bot]' && steps.pr.outputs.state == 'open'
+      # that approval is our signal the allow-list decision was "allow". A PR
+      # that isn't cleanly mergeable yet (e.g. behind main) is a normal,
+      # expected state — skip it quietly rather than failing the run; it'll
+      # be picked up again the next time Merge Gatekeeper succeeds for it.
+      - name: Merge if Dependabot-authored, approved, and up to date
+        if: steps.pr.outputs.number != ''
+        env:
+          NUMBER: ${{ steps.pr.outputs.number }}
         run: |
-          url="${{ steps.pr.outputs.url }}"
-          approvals=$(gh pr view "$url" --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length')
-          if [[ "$approvals" -gt 0 ]]; then
-            gh pr merge "$url" --squash
+          info=$(gh pr view "$NUMBER" --json state,author,mergeable,mergeStateStatus,reviews)
+          state=$(jq -r '.state' <<<"$info")
+          author=$(jq -r '.author.login' <<<"$info")
+          mergeable=$(jq -r '.mergeable' <<<"$info")
+          merge_state=$(jq -r '.mergeStateStatus' <<<"$info")
+          approvals=$(jq '[.reviews[] | select(.state == "APPROVED")] | length' <<<"$info")
+
+          if [[ "$state" != "OPEN" || "$author" != "dependabot[bot]" ]]; then
+            echo "PR #$NUMBER is not an open Dependabot PR (author=$author state=$state) — skipping."
+          elif [[ "$approvals" -eq 0 ]]; then
+            echo "PR #$NUMBER has no approval from the reviewer workflow — skipping."
+          elif [[ "$mergeable" != "MERGEABLE" || "$merge_state" != "CLEAN" ]]; then
+            echo "PR #$NUMBER isn't cleanly mergeable yet (mergeable=$mergeable, mergeStateStatus=$merge_state) — skipping."
           else
-            echo "No approval from the reviewer workflow — leaving PR #$url as-is."
+            # `gh pr merge` (with or without --auto) always drives the merge
+            # through the `mergePullRequest` GraphQL mutation, which fine-grained
+            # PATs cannot access at all ("Resource not accessible by personal
+            # access token"), independent of the token's configured scopes. The
+            # REST merge endpoint works fine with the same PAT, so call it
+            # directly instead of going through `gh pr merge`.
+            gh api --method PUT "repos/${{ github.repository }}/pulls/$NUMBER/merge" -f merge_method=squash
           fi
