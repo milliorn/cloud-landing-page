@@ -1,8 +1,13 @@
 name: Dependabot reviewer
 
 # Fires whenever Dependabot opens, updates, or reopens a PR targeting main.
-# pull_request_target runs in the context of the base branch, which gives the
-# GITHUB_TOKEN enough permission to approve and merge without extra secrets.
+#
+# The approve/merge/close steps authenticate as DEPENDABOT_REBASE_PAT (a PAT),
+# not the default GITHUB_TOKEN. GitHub Actions never lets an event produced by
+# GITHUB_TOKEN trigger another workflow run (anti-recursion protection) — so a
+# merge performed with GITHUB_TOKEN can never fire dependabot-rebase-cascade.yml's
+# pull_request_target:closed trigger, and stale sibling PRs never get rebased.
+# A PAT-authenticated merge is a normal event and triggers it correctly.
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -14,12 +19,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
-# Minimum permissions needed:
-# - pull-requests: approve and comment on PRs
-# - contents: enable auto-merge (writes to the merge queue)
+# Read-only for GITHUB_TOKEN: it's only used by fetch-metadata now. The gh CLI
+# calls below authenticate as GH_TOKEN (the DEPENDABOT_REBASE_PAT) instead.
 permissions:
-  pull-requests: write
-  contents: write
+  pull-requests: read
+  contents: read
 
 env:
   # Opt into Node.js 24 now ahead of the June 2, 2026 forced migration.
@@ -33,7 +37,8 @@ jobs:
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     env:
       PR_URL: ${{ github.event.pull_request.html_url }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # PAT, not GITHUB_TOKEN — see comment at the top of this file for why.
+      GH_TOKEN: ${{ secrets.DEPENDABOT_REBASE_PAT }}
 
     steps:
       - name: Dependabot metadata
