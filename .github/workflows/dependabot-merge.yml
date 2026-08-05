@@ -1,0 +1,49 @@
+name: Dependabot merge
+
+# Fires after Merge Gatekeeper concludes on any PR. Merge Gatekeeper aggregates
+# every other required check on the commit, so by the time it reports success
+# we know the PR is actually mergeable — no need to re-poll checks here.
+#
+# This is deliberately a separate workflow from automerge.yml's approve step:
+# Merge Gatekeeper waits on that job as one of its own checks, so merging from
+# within it would deadlock (see the note at the top of automerge.yml).
+on:
+  workflow_run:
+    workflows: ["Merge Gatekeeper"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  merge:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      # PAT, not GITHUB_TOKEN — see automerge.yml for why the merge event's
+      # identity has to be a PAT for dependabot-rebase-cascade.yml to fire.
+      GH_TOKEN: ${{ secrets.DEPENDABOT_REBASE_PAT }}
+
+    steps:
+      - name: Find the PR for this commit
+        id: pr
+        run: |
+          pr_json=$(gh api "repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha }}/pulls" --jq '.[0] // empty')
+          echo "url=$(jq -r '.html_url // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
+          echo "author=$(jq -r '.user.login // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
+          echo "state=$(jq -r '.state // empty' <<<"${pr_json:-{}}")" >> "$GITHUB_OUTPUT"
+
+      # Only merge PRs the "Dependabot reviewer" workflow already approved —
+      # that approval is our signal the allow-list decision was "allow".
+      - name: Merge if Dependabot-authored and already approved
+        if: steps.pr.outputs.author == 'dependabot[bot]' && steps.pr.outputs.state == 'open'
+        run: |
+          url="${{ steps.pr.outputs.url }}"
+          approvals=$(gh pr view "$url" --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length')
+          if [[ "$approvals" -gt 0 ]]; then
+            gh pr merge "$url" --squash
+          else
+            echo "No approval from the reviewer workflow — leaving PR #$url as-is."
+          fi

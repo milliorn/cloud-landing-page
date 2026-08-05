@@ -1,13 +1,22 @@
 name: Dependabot reviewer
 
 # Fires whenever Dependabot opens, updates, or reopens a PR targeting main.
+# This workflow only approves or closes — it never merges. The actual merge
+# happens in dependabot-merge.yml, triggered after Merge Gatekeeper concludes.
+# Two reasons it's split out that way instead of merging here:
 #
-# The approve/merge/close steps authenticate as DEPENDABOT_REBASE_PAT (a PAT),
-# not the default GITHUB_TOKEN. GitHub Actions never lets an event produced by
-# GITHUB_TOKEN trigger another workflow run (anti-recursion protection) — so a
-# merge performed with GITHUB_TOKEN can never fire dependabot-rebase-cascade.yml's
-# pull_request_target:closed trigger, and stale sibling PRs never get rebased.
-# A PAT-authenticated merge is a normal event and triggers it correctly.
+# 1. Deadlock: Merge Gatekeeper waits for every other check on the commit,
+#    including this workflow's own "review-dependabot-pr" job, before it can
+#    report success. If this job blocked waiting for Merge Gatekeeper (e.g. via
+#    `gh pr checks --watch`), neither would ever finish.
+# 2. Merges must authenticate as DEPENDABOT_REBASE_PAT (a PAT), not the default
+#    GITHUB_TOKEN — GitHub Actions never lets an event produced by GITHUB_TOKEN
+#    trigger another workflow run (anti-recursion protection), so a merge done
+#    with GITHUB_TOKEN can never fire dependabot-rebase-cascade.yml's
+#    pull_request_target:closed trigger, and stale sibling PRs never get
+#    rebased. A PAT-authenticated merge is a normal event and triggers it
+#    correctly. (Approving here still uses the PAT for the same reason, even
+#    though only the merge step's identity actually matters for the cascade.)
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -61,13 +70,12 @@ jobs:
             echo "action=deny" >> "$GITHUB_OUTPUT"
           fi
 
-      # --auto queues the merge so all required branch protection checks must
-      # pass first (e.g. dependency-review) before the merge goes through.
-      - name: Allow — approve and merge
+      # Approve only. dependabot-merge.yml does the actual merge once Merge
+      # Gatekeeper concludes success — see the note at the top of this file.
+      - name: Allow — approve
         if: steps.decision.outputs.action == 'allow'
         run: |
           gh pr review "$PR_URL" --approve -b "Auto-approved: **${{ steps.metadata.outputs.update-type }}** ${{ steps.metadata.outputs.package-ecosystem }} update."
-          gh pr merge "$PR_URL" --squash --auto
 
       - name: Deny — unexpected update
         if: steps.decision.outputs.action == 'deny'
