@@ -27,6 +27,9 @@ jobs:
       GH_TOKEN: ${{ secrets.DEPENDABOT_REBASE_PAT }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       # Read the PR number straight off the triggering event instead of
       # looking it up via the commits/{sha}/pulls API — that endpoint lags
       # behind the push by a few seconds and can return nothing yet, which
