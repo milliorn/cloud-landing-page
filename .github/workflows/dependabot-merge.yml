@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Read the PR number straight off the triggering event instead of
       # looking it up via the commits/{sha}/pulls API — that endpoint lags
