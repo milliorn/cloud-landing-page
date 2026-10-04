@@ -1,0 +1,45 @@
+# Verifies the app still type-checks and builds on every PR, including
+# Dependabot's. automerge.yml only inspects Dependabot's update metadata
+# (patch/minor/major) -- it never installs or builds anything, so a patch
+# release that breaks the CRA build would otherwise merge unchecked. Add this
+# workflow's job as a required status check (alongside merge-gatekeeper) so
+# that no longer happens.
+name: CI
+
+on:
+  pull_request:
+    branches: ["main"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CI: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run tsc:build
+
+      # react-scripts build also runs CRA's built-in ESLint check
+      # (eslint-config-react-app) and fails on warnings when CI=true.
+      - name: Build
+        run: npm run build
