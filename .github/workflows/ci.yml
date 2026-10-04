@@ -17,6 +17,11 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  # Opt into Node.js 24 now ahead of the June 2, 2026 forced migration.
+  # Avoids a breaking change when GitHub drops Node.js 20 support for actions.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
