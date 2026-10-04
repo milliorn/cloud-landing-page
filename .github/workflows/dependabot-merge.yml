@@ -20,7 +20,7 @@ jobs:
   merge:
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 2
     env:
       # PAT, not GITHUB_TOKEN — see automerge.yml for why the merge event's
       # identity has to be a PAT for dependabot-rebase-cascade.yml to fire.
