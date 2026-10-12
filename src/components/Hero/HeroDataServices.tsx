@@ -1,5 +1,5 @@
 import React from "react";
-import { mappedData } from ".";
+import { heroDataServices } from "./heroData";
 
 /**
  * create card with data services in hero
@@ -12,7 +12,16 @@ export function HeroDataServices() {
     border border-slate-300 rounded-xl text-center shadow-xl -my-8 sm:my-0"
     >
       <p>Data Services</p>
-      <div className="flex justify-between flex-wrap px-4">{mappedData}</div>
+      <div className="flex justify-between flex-wrap px-4">
+        {heroDataServices.map((e) => (
+          <div className="flex px-4 py-2 text-gray-900" key={e.p}>
+            <div className="h-6 text-indigo-600">
+              <e.component />
+            </div>
+            <p className="text-gray-900">{e.p}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
