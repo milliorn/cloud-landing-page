@@ -2,7 +2,7 @@ name: Dependabot reviewer
 
 # Fires whenever Dependabot opens, updates, or reopens a PR targeting main.
 # pull_request_target runs in the context of the base branch, which gives the
-# GH_TOKEN enough permission to approve and merge without extra secrets.
+# GITHUB_TOKEN enough permission to approve and merge without extra secrets.
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -14,11 +14,12 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
-# Read-only for GITHUB_TOKEN: it's only used by fetch-metadata now. The gh CLI
-# calls below authenticate as GH_TOKEN (the DEPENDABOT_REBASE_PAT) instead.
+# Minimum permissions needed:
+# - pull-requests: approve and comment on PRs
+# - contents: enable auto-merge (writes to the merge queue)
 permissions:
-  pull-requests: read
-  contents: read
+  pull-requests: write
+  contents: write
 
 jobs:
   review-dependabot-pr:
@@ -28,15 +29,7 @@ jobs:
     if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     env:
       PR_URL: ${{ github.event.pull_request.html_url }}
-      # PAT, not GITHUB_TOKEN: a GITHUB_TOKEN-authored merge can't trigger
-      # other workflow runs (GitHub's anti-recursion protection), so it would
-      # silently never fire dependabot-rebase-cascade.yml's
-      # pull_request_target: closed trigger, and stale sibling PRs would
-      # never get rebased. A PAT-authenticated merge is a normal event and
-      # triggers it correctly. Needs Contents: read/write in addition to
-      # Pull requests: read/write, or --auto fails with "Resource not
-      # accessible by personal access token (enablePullRequestAutoMerge)".
-      GH_TOKEN: ${{ secrets.DEPENDABOT_REBASE_PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Dependabot metadata
