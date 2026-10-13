@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Rebase remaining open Dependabot PRs
         run: |
+          FAILURES="$(mktemp)"
           gh pr list \
             --repo "${{ github.repository }}" \
             --author "app/dependabot" \
@@ -29,7 +30,12 @@ jobs:
             --json number \
             --jq '.[].number' | \
           xargs -r -P 8 -I{} sh -c '
-            echo "Requesting rebase on PR #{}"
-            gh pr comment {} --repo "${{ github.repository }}" --body "@dependabot rebase" \
-              || echo "::warning::Failed to request rebase on PR #{}"
-          '
+            echo "Requesting rebase on PR #$1"
+            gh pr comment "$1" --repo "${{ github.repository }}" --body "@dependabot rebase" \
+              || { echo "::warning::Failed to request rebase on PR #$1"; echo "$1" >> "$2"; }
+          ' _ {} "$FAILURES"
+
+          if [ -s "$FAILURES" ]; then
+            echo "::error::Failed to request rebase on PR(s): $(paste -sd, "$FAILURES")"
+            exit 1
+          fi
