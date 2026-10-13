@@ -5,9 +5,8 @@ export function FooterForm() {
   return (
     <form
       className="flex flex-col sm:flex-row"
-      action="/subscribe"
-      method="POST"
       autoComplete="on"
+      onSubmit={(e) => e.preventDefault()}
     >
       <label htmlFor="email" className="sr-only">
         Email address
