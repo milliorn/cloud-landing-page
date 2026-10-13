@@ -8,18 +8,18 @@ import {
 export const heroDataServices = [
   {
     component: HiCloudUpload,
-    p: "App Security",
+    label: "App Security",
   },
   {
     component: HiDatabase,
-    p: "Dashboard Design",
+    label: "Dashboard Design",
   },
   {
     component: HiServer,
-    p: "Cloud Data",
+    label: "Cloud Data",
   },
   {
     component: HiPaperAirplane,
-    p: "API",
+    label: "API",
   },
 ] as const;

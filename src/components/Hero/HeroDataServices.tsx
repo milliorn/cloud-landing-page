@@ -15,11 +15,11 @@ export function HeroDataServices() {
       <p>Data Services</p>
       <div className="flex justify-between flex-wrap px-4">
         {heroDataServices.map((e) => (
-          <div className="flex px-4 py-2 text-gray-900" key={e.p}>
+          <div className="flex px-4 py-2 text-gray-900" key={e.label}>
             <div className="h-6 text-indigo-600">
               <Icon icon={e.component} />
             </div>
-            <p className="text-gray-900">{e.p}</p>
+            <p className="text-gray-900">{e.label}</p>
           </div>
         ))}
       </div>
