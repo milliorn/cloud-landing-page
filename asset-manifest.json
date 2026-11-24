@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/cloud-landing-page/static/css/main.c402f802.css",
-    "main.js": "/cloud-landing-page/static/js/main.b4ecd15e.js",
+    "main.css": "/cloud-landing-page/static/css/main.16f852b8.css",
+    "main.js": "/cloud-landing-page/static/js/main.12f28c81.js",
     "index.html": "/cloud-landing-page/index.html",
-    "main.c402f802.css.map": "/cloud-landing-page/static/css/main.c402f802.css.map",
-    "main.b4ecd15e.js.map": "/cloud-landing-page/static/js/main.b4ecd15e.js.map"
+    "main.16f852b8.css.map": "/cloud-landing-page/static/css/main.16f852b8.css.map",
+    "main.12f28c81.js.map": "/cloud-landing-page/static/js/main.12f28c81.js.map"
   },
   "entrypoints": [
-    "static/css/main.c402f802.css",
-    "static/js/main.b4ecd15e.js"
+    "static/css/main.16f852b8.css",
+    "static/js/main.12f28c81.js"
   ]
 }
